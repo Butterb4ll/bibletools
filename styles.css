@@ -2531,7 +2531,6 @@ input:checked + .slider:before {
   
   .verse-input {
     flex: 1;
-    min-width: 170px;
     max-width: 250px;
   }
 
@@ -2733,7 +2732,6 @@ input:checked + .slider:before {
   
   .verse-input {
     flex: 1;
-    min-width: 160px; /* Gradual scaling for mobile */
     padding: 0.6rem;
     font-size: 16px; /* Prevent zoom on iOS */
     border: 1px solid var(--border-color);
