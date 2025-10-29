@@ -2408,10 +2408,11 @@ input:checked + .slider:before {
     width: 85%;
     max-width: 320px;
     height: 100vh;
-    padding: 4rem var(--spacing-md) var(--spacing-md);
+    padding: 4rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.25rem;
     background: var(--primary-color);
     transition: left var(--transition-speed) ease;
     overflow-y: auto;
@@ -2424,7 +2425,7 @@ input:checked + .slider:before {
 
   .main-nav a {
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 0.875rem 1.5rem;
     text-align: left;
   }
 
@@ -2443,7 +2444,7 @@ input:checked + .slider:before {
     align-items: center;
     width: 100%;
     gap: 8px;
-    padding: 0.5rem 1.5rem;
+    padding: 0.875rem 1.5rem;
     margin: 0;
   }
 
