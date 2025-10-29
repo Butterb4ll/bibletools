@@ -840,18 +840,12 @@ function navigateToVerse(book, chapter, verse) {
     const bookName = bibleData[book] ? bibleData[book].name : book;
     document.getElementById('passage-title').textContent = `${bookName} ${chapter}:${verse}`;
     
-    // Update dropdowns to match
-    console.log('Setting bookSelect.value to:', book); // Debug
-    bookSelect.value = book;
-    console.log('bookSelect.value is now:', bookSelect.value); // Debug
-    
+    // Reset dropdowns to Genesis 1:1 for next selection
+    bookSelect.value = 'genesis';
     updateChapters();
-    chapterSelect.value = chapter;
-    console.log('chapterSelect.value is now:', chapterSelect.value); // Debug
-    
+    chapterSelect.value = '1';
     updateVerses();
-    verseSelect.value = verse;
-    console.log('verseSelect.value is now:', verseSelect.value); // Debug
+    verseSelect.value = '1';
     
     // Load the chapter content
     loadChapterContent(book, chapter);
