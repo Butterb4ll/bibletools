@@ -2046,10 +2046,15 @@ input:checked + .slider:before {
   .translation-text {
     font-size: 0.85rem;
   }
-  
+
   /* Mobile tools still hidden */
   .verse-mobile-tools {
     display: none !important;
+  }
+
+  /* Gradual verse input scaling */
+  .verse-input {
+    min-width: 195px;
   }
 }
 
@@ -2247,9 +2252,14 @@ input:checked + .slider:before {
   .logo {
     font-size: 2.2rem;
   }
-  
+
   .search-wrapper {
     width: 200px;
+  }
+
+  /* Gradual verse input scaling */
+  .verse-input {
+    min-width: 190px;
   }
 }
 
@@ -2279,8 +2289,13 @@ input:checked + .slider:before {
   .article-content {
     padding: var(--spacing-md);
   }
-  
+
   /* Nav toggle will be shown at 820px and below */
+
+  /* Gradual verse input scaling */
+  .verse-input {
+    min-width: 185px;
+  }
 }
 
 /* Medium tablet portrait */
@@ -2523,7 +2538,7 @@ input:checked + .slider:before {
   
   .verse-input {
     flex: 1;
-    min-width: 150px;
+    min-width: 170px;
     max-width: 250px;
   }
 
@@ -2725,7 +2740,7 @@ input:checked + .slider:before {
   
   .verse-input {
     flex: 1;
-    min-width: 150px; /* Smaller minimum for mobile */
+    min-width: 160px; /* Gradual scaling for mobile */
     padding: 0.6rem;
     font-size: 16px; /* Prevent zoom on iOS */
     border: 1px solid var(--border-color);
