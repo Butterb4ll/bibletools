@@ -491,6 +491,21 @@ select:focus-visible {
   transform-origin: left;
 }
 
+/* Disable logo animation on smaller screens */
+@media (max-width: 1050px) {
+  .logo {
+    transition: none;
+  }
+
+  .logo::before {
+    display: none;
+  }
+
+  .logo:hover::before {
+    display: none;
+  }
+}
+
 /* Navigation styles */
 .main-nav {
   display: flex;
