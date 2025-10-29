@@ -2063,11 +2063,6 @@ input:checked + .slider:before {
   .verse-mobile-tools {
     display: none !important;
   }
-
-  /* Gradual verse input scaling */
-  .verse-input {
-    min-width: 195px;
-  }
 }
 
 /* CLEAN BREAK - Sidebars completely disappear, mobile tools appear */
@@ -2268,11 +2263,6 @@ input:checked + .slider:before {
   .search-wrapper {
     width: 200px;
   }
-
-  /* Gradual verse input scaling */
-  .verse-input {
-    min-width: 190px;
-  }
 }
 
 /* Tablet portrait / smaller tablets */
@@ -2303,11 +2293,6 @@ input:checked + .slider:before {
   }
 
   /* Nav toggle will be shown at 820px and below */
-
-  /* Gradual verse input scaling */
-  .verse-input {
-    min-width: 185px;
-  }
 }
 
 /* Medium tablet portrait */
@@ -2333,10 +2318,6 @@ input:checked + .slider:before {
   
   .direct-input {
     margin-top: var(--spacing-sm);
-  }
-  
-  .verse-input {
-    min-width: 180px;
   }
 }
 
