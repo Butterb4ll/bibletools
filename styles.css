@@ -380,6 +380,20 @@
   text-decoration: underline;
 }
 
+/* Cross reference and topical links in study panel */
+.dark-mode .verse-study-panel .verse-ref,
+.dark-mode .verse-study-panel .topical-link {
+  color: #ff8c42;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dark-mode .verse-study-panel .verse-ref:hover,
+.dark-mode .verse-study-panel .topical-link:hover {
+  color: #ffa666;
+  text-decoration: underline;
+}
+
 
 /* ===========================
    DARK MODE — Current Verse Reference
