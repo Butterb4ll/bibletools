@@ -839,24 +839,17 @@ function navigateToVerse(book, chapter, verse) {
     // Update UI elements
     const bookName = bibleData[book] ? bibleData[book].name : book;
     document.getElementById('passage-title').textContent = `${bookName} ${chapter}:${verse}`;
-    
-    // Reset dropdowns to Genesis 1:1 for next selection
-    bookSelect.value = 'genesis';
-    updateChapters();
-    chapterSelect.value = '1';
-    updateVerses();
-    verseSelect.value = '1';
-    
+
     // Load the chapter content
     loadChapterContent(book, chapter);
-    
+
     // Highlight the correct verse
     setTimeout(() => {
         document.querySelectorAll('.verse').forEach(v => v.classList.remove('highlighted'));
         const targetVerse = document.getElementById(`verse-${verse}`);
         if (targetVerse) {
             targetVerse.classList.add('highlighted');
-            
+
             // Automatically open Forerunner commentary
             setTimeout(() => {
                 openStudyPanel('forerunner', {
@@ -864,6 +857,15 @@ function navigateToVerse(book, chapter, verse) {
                     chapter: chapter,
                     verse: verse
                 });
+
+                // Reset dropdowns to Genesis 1:1 AFTER everything is loaded
+                setTimeout(() => {
+                    bookSelect.value = 'genesis';
+                    updateChapters();
+                    chapterSelect.value = '1';
+                    updateVerses();
+                    verseSelect.value = '1';
+                }, 100);
             }, 200);
         }
     }, 100);

@@ -408,7 +408,7 @@
 
 /* Base styles */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 90px;
 }
 
@@ -571,6 +571,13 @@ select:focus-visible {
 
 .site-header.scrolled .logo {
   font-size: 2.4rem;
+}
+
+/* Disable logo size change on scroll for smaller screens */
+@media (max-width: 1050px) {
+  .site-header.scrolled .logo {
+    font-size: inherit;
+  }
 }
 
 /* Search styles */
