@@ -1493,25 +1493,29 @@ function openStudyPanel(optionType, reference) {
 
     function setupStudyOptionTabs() {
         const studyTabs = document.querySelectorAll('.study-tab');
-        
+
         studyTabs.forEach(tab => {
             tab.addEventListener('click', function() {
                 const optionType = this.dataset.option;
-                
+
                 if (optionType && optionType !== currentStudyOption) {
                     const studyPanel = document.getElementById('verse-study-panel');
                     const currentHeight = studyPanel.offsetHeight;
                     studyPanel.style.minHeight = Math.max(currentHeight, 400) + 'px';
-                    
+
+                    // Capture current scroll position to prevent auto-scrolling
+                    const scrollX = window.scrollX || window.pageXOffset;
+                    const scrollY = window.scrollY || window.pageYOffset;
+
                     // Update active tab
                     studyTabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     // Update the content area
                     const studyContentArea = document.querySelector('.study-content-area');
                     if (studyContentArea) {
                         studyContentArea.style.opacity = '0.7';
-                        
+
                         setTimeout(() => {
                             const newContent = generateStudyContent(optionType, {
                                 book: globalVerseState.book,
@@ -1519,7 +1523,7 @@ function openStudyPanel(optionType, reference) {
                                 verse: globalVerseState.verse
                             });
                             studyContentArea.innerHTML = newContent;
-                            
+
                             // Update title
                             const titles = {
                                 definitions: 'Definitions',
@@ -1528,18 +1532,23 @@ function openStudyPanel(optionType, reference) {
                                 topical: 'Topical Studies',
                                 'cross-references': 'Cross References'
                             };
-                            
+
                             const sidePanelTitle = document.getElementById('study-panel-title');
                             if (sidePanelTitle) {
                                 sidePanelTitle.textContent = titles[optionType] || 'Study Panel';
                             }
-                            
+
                             currentStudyOption = optionType;
                             studyContentArea.style.opacity = '1';
                             setActiveSidebarLink(optionType);
-                            
+
+                            // Restore scroll position to prevent auto-scrolling
+                            window.scrollTo(scrollX, scrollY);
+
                             setTimeout(() => {
                                 studyPanel.style.minHeight = '400px';
+                                // Restore scroll position again after height change
+                                window.scrollTo(scrollX, scrollY);
                             }, 200);
                         }, 100);
                     }

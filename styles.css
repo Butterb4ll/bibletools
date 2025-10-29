@@ -418,6 +418,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   padding-top: 105px;
+  overflow-anchor: none;
 }
 
 .desktop-only {
@@ -576,7 +577,11 @@ select:focus-visible {
 /* Disable logo size change on scroll for smaller screens */
 @media (max-width: 1050px) {
   .site-header.scrolled .logo {
-    font-size: inherit;
+    font-size: inherit !important;
+  }
+
+  .site-header.scrolled .header-content {
+    height: inherit;
   }
 }
 
