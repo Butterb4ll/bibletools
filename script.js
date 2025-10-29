@@ -672,18 +672,31 @@ const bookAbbreviations = {
     // Header scroll behavior
     let lastScrollPosition = 0;
     window.addEventListener('scroll', function() {
+        // Only apply scroll behavior on screens larger than 1050px
+        if (window.innerWidth <= 1050) {
+            header.classList.remove('scrolled');
+            return;
+        }
+
         const currentScrollPosition = window.pageYOffset;
         const scrollThreshold = 60;
-        
+
         if (currentScrollPosition > scrollThreshold && currentScrollPosition > lastScrollPosition) {
             header.classList.add('scrolled');
         } else if (currentScrollPosition < lastScrollPosition || currentScrollPosition < scrollThreshold) {
             header.classList.remove('scrolled');
         }
-        
+
         lastScrollPosition = currentScrollPosition;
     });
-    
+
+    // Remove scrolled class on resize if window is <= 1050px
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 1050) {
+            header.classList.remove('scrolled');
+        }
+    });
+
     // Mobile menu toggle
     if (navToggle) {
         navToggle.addEventListener('click', function() {
