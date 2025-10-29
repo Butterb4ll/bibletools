@@ -850,6 +850,9 @@ function navigateToVerse(book, chapter, verse) {
         if (targetVerse) {
             targetVerse.classList.add('highlighted');
 
+            // Smooth scroll to the verse
+            targetVerse.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
             // Automatically open Forerunner commentary
             setTimeout(() => {
                 openStudyPanel('forerunner', {
@@ -1349,6 +1352,8 @@ function openStudyPanel(optionType, reference) {
     const targetVerse = document.getElementById(`verse-${reference.verse}`);
     if (targetVerse) {
         targetVerse.classList.add('highlighted');
+        // Smooth scroll to the verse
+        targetVerse.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     
     // Set minimum height
