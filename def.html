@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Definitions - Bible Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="def-styles.css">
+</head>
+<body>
+    <!-- Site Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+            <div class="header-content">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <a href="home.html" class="logo">Bible Tools</a>
+                
+                <div class="search-wrapper">
+                    <form class="search-form">
+                        <input type="search" class="search-field" placeholder="Search..." aria-label="Search">
+                        <button type="button" class="search-clear" style="display: none;">&times;</button>
+                        <button type="submit" class="search-button" aria-label="Submit search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div> 
+            
+            <nav class="main-nav" id="mainNav">
+                <a href="def.html">Definitions</a>
+                <a href="/topical">Topical Studies</a>
+                <a href="/resources">Resources</a>
+                <a href="/subscriptions">Subscriptions</a>
+                <a href="/about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
+
+    <!-- Letter Navigation -->
+    <div class="letter-navigation" id="letterNav">
+        <div class="letter-nav-container">
+            <div class="letters-grid">
+                <button class="letter-btn active" data-letter="A">A</button>
+                <button class="letter-btn" data-letter="B">B</button>
+                <button class="letter-btn" data-letter="C">C</button>
+                <button class="letter-btn" data-letter="D">D</button>
+                <button class="letter-btn" data-letter="E">E</button>
+                <button class="letter-btn" data-letter="F">F</button>
+                <button class="letter-btn" data-letter="G">G</button>
+                <button class="letter-btn" data-letter="H">H</button>
+                <button class="letter-btn" data-letter="I">I</button>
+                <button class="letter-btn" data-letter="J">J</button>
+                <button class="letter-btn" data-letter="K">K</button>
+                <button class="letter-btn" data-letter="L">L</button>
+                <button class="letter-btn" data-letter="M">M</button>
+                <button class="letter-btn" data-letter="N">N</button>
+                <button class="letter-btn" data-letter="O">O</button>
+                <button class="letter-btn" data-letter="P">P</button>
+                <button class="letter-btn" data-letter="Q">Q</button>
+                <button class="letter-btn" data-letter="R">R</button>
+                <button class="letter-btn" data-letter="S">S</button>
+                <button class="letter-btn" data-letter="T">T</button>
+                <button class="letter-btn" data-letter="U">U</button>
+                <button class="letter-btn" data-letter="V">V</button>
+                <button class="letter-btn" data-letter="W">W</button>
+                <button class="letter-btn" data-letter="X">X</button>
+                <button class="letter-btn" data-letter="Y">Y</button>
+                <button class="letter-btn" data-letter="Z">Z</button>
+            </div>
+            <div class="def-search-wrapper">
+                <input type="search" class="def-search-field" placeholder="Search definitions..." aria-label="Search definitions">
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="definitions-layout">
+        <main class="definitions-content">
+            <h1>Bible Definitions</h1>
+            
+            <div class="current-letter-display">
+                <span class="current-letter">A</span>
+            </div>
+
+            <!-- Letter A Definitions -->
+            <div class="definitions-container" data-letter="A">
+                
+                <!-- Definition: A -->
+                <div class="definition-item" id="def-a">
+                    <div class="definition-header">
+                        <div class="definition-word">A</div>
+                        <div class="definition-toggle">
+                            <span>View Definition</span>
+                            <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="definition-content">
+                        <div class="source-tabs">
+                            <button class="source-tab active" data-source="isbe">I.S.B.E.</button>
+                        </div>
+                        
+                        <div class="source-content active" data-source="isbe">
+                            <div class="source-header">
+                                <div class="source-title">International Standard Bible Encyclopedia</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>See ALEPH; ALPHABET.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Definition: Aalar -->
+                <div class="definition-item" id="def-aalar">
+                    <div class="definition-header">
+                        <div class="definition-word">Aalar</div>
+                        <div class="definition-toggle">
+                            <span>View Definition</span>
+                            <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="definition-content">
+                        <div class="source-tabs">
+                            <button class="source-tab active" data-source="isbe">I.S.B.E.</button>
+                        </div>
+                        
+                        <div class="source-content active" data-source="isbe">
+                            <div class="source-header">
+                                <div class="source-title">International Standard Bible Encyclopedia</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>a'-a-lar.</p>
+                                <p>See ALTAR.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Definition: Aaron -->
+                <div class="definition-item" id="def-aaron">
+                    <div class="definition-header">
+                        <div class="definition-word">Aaron</div>
+                        <div class="definition-toggle">
+                            <span>View Definition</span>
+                            <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="definition-content">
+                        <div class="source-tabs">
+                            <button class="source-tab active" data-source="eastons">Easton's</button>
+                            <button class="source-tab" data-source="hitchcocks">Hitchcock's</button>
+                            <button class="source-tab" data-source="isbe">I.S.B.E.</button>
+                        </div>
+                        
+                        <!-- Easton's Content -->
+                        <div class="source-content active" data-source="eastons">
+                            <div class="source-header">
+                                <div class="source-title">Easton's Bible Dictionary</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>the eldest son of Amram and Jochebed, a daughter of Levi (Exodus 6:20). Some explain the name as meaning mountaineer, others mountain of strength, illuminator. He was born in Egypt three years before his brother Moses, and a number of years after his sister Miriam (2:1,4; 7:7). He married Elisheba, the daughter of Amminadab of the house of Judah (6:23; I Chronicles 2:10), by whom he had four sons, Nadab and Abihu, Eleazar and Ithamar. When the time for the deliverance of Isarael out of Egypt drew nigh, he was sent by God (Exodus 4:14,27-30) to meet his long-absent brother, that he might co-operate with him in all that they were required to do in bringing about the Exodus. He was to be the "mouth" or "prophet" of Moses, i.e., was to speak for him, because he was a man of a ready utterance (7:1,2,9,10,19). He was faithful to his trust, and stood by Moses in all his interviews with Pharaoh.</p>
+                            </div>
+                            <div class="see-also-section">
+                                <div class="see-also-title">See also:</div>
+                                <div class="see-also-links">
+                                    <a href="#def-aaron" class="see-also-link cross-reference" data-ref="aaron" data-source="isbe">Aaron {International Standard Bible Encyclopedia}</a>
+                                    <a href="#def-aaron" class="see-also-link cross-reference" data-ref="aaron" data-source="hitchcocks">Aaron {Hitchcock's Bible Name}</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hitchcock's Content -->
+                        <div class="source-content" data-source="hitchcocks">
+                            <div class="source-header">
+                                <div class="source-title">Hitchcock's Bible Names</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>a teacher; lofty; mountain of strength</p>
+                            </div>
+                            <div class="see-also-section">
+                                <div class="see-also-title">See also:</div>
+                                <div class="see-also-links">
+                                    <a href="#def-aaron" class="see-also-link cross-reference" data-ref="aaron" data-source="isbe">Aaron {International Standard Bible Encyclopedia}</a>
+                                    <a href="#def-aaron" class="see-also-link cross-reference" data-ref="aaron" data-source="eastons">Aaron {Easton's Bible Dictionary}</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- I.S.B.E. Content -->
+                        <div class="source-content" data-source="isbe">
+                            <div class="source-header">
+                                <div class="source-title">International Standard Bible Encyclopedia</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>ar'-un, sometimes pronounced ar'on ('aharon—Septuagint Aaron, meaning uncertain: Gesenius suggests "mountaineer"; Furst, "enlightened"; others give "rich," "fluent." Cheyne mentions Redslob's "ingenious conjecture" of ha-'aron—"the ark"—with its mythical, priestly significance, Encyclopedia Biblica under the word):</p>
+                                
+                                <p><strong>1. Family:</strong></p>
+                                <p>Probably eldest son of Amram (Exodus 6:20), and according to the uniform genealogical lists (Exodus 6:16-20; I Chronicles 6:1-3), the fourth from Levi. This however is not certainly fixed, since there are frequent omissions from the Hebrew lists of names which are not prominent in the line of descent. For the corresponding period from Levi to Aaron the Judah list has six names (Ruth 4:18-20; 1Ch. 2). Levi and his family were zealous, even to violence (Genesis 34:25; Exodus 32:26), for the national honor and religion, and Aaron no doubt inherited his full portion of this spirit. His mother's name was Jochebed, who was also of the Levitical family (Exodus 6:20). Miriam, his sister, was several years older, since she was set to watch the novel cradle of the infant brother Moses, at whose birth Aaron was three years old (Exodus 7:7).</p>
+                                
+                                <p><strong>2. Becomes Moses' Assistant:</strong></p>
+                                <p>When Moses fled from Egypt, Aaron remained to share the hardships of his people, and possibly to render them some service; for we are told that Moses entreated of God his brother's cooperation in his mission to Pharaoh and to Israel, and that Aaron went out to meet his returning brother, as the time of deliverance drew near (Exodus 4:27). While Moses, whose great gifts lay along other lines, was slow of speech (Exodus 4:10), Aaron was a ready spokesman, and became his brother's representative, being called his "mouth" (Exodus 4:16) and his "prophet" (Exodus 7:1). After their meeting in the wilderness the two brothers returned together to Egypt on the hazardous mission to which Yahweh had called them (Exodus 4:27-31). At first they appealed to their own nation, recalling the ancient promises and declaring the imminent deliverance, Aaron being the spokesman. But the heart of the people, hopeless by reason of the hard bondage and heavy with the care of material things, did not incline to them. The two brothers then forced the issue by appealing directly to Pharaoh himself, Aaron still speaking for his brother (Exodus 6:10-13). He also performed, at Moses' direction, the miracles which confounded Pharaoh and his magicians. With Hur, he held up Moses hands, in order that the 'rod of God might be lifted up,' during the fight with Amalek (Exodus 17:10, Exodus 17:12).</p>
+                                
+                                <p><strong>3. An Elder:</strong></p>
+                                <p>Aaron next comes into prominence when at Sinai he is one of the elders and representatives of his tribe to approach nearer to the Mount than the people in general were allowed to do, and to see the manifested glory of God (Exodus 24:1, Exodus 24:9-10). A few days later, when Moses, attended by his "minister" Joshua, went up into the mountain, Aaron exercised some kind of headship over the people in his absence. Despairing of seeing again their leader, who had disappeared into the mystery of communion with the invisible God, they appealed to Aaron to prepare them more tangible gods, and to lead them back to Egypt (Exo. 32). Aaron never appears as the strong, heroic character which his brother was; and here at Sinai he revealed his weaker nature, yielding to the demands of the people and permitting the making of the golden bullock. That he must however have yielded reluctantly, is evident from the ready zeal of his tribesmen, whose leader he was, to stay and to avenge the apostasy by rushing to arms and falling mightily upon the idolaters at the call of Moses (Exodus 32:26-28).</p>
+                                
+                                <p><strong>4. High Priest:</strong></p>
+                                <p>In connection with the planning and erection of the tabernacle ("the Tent"), Aaron and his sons being chosen for the official priesthood, elaborate and symbolical vestments were prepared for them (Exo. 28); and after the erection and dedication of the tabernacle, he and his sons were formally inducted into the sacred office (Lev. 8). It appears that Aaron alone was anointed with the holy oil (Leviticus 8:12), but his sons were included with him in the duty of caring for sacrificial rites and things. They served in receiving and presenting the various offerings, and could enter and serve in the first chamber of the tabernacle; but Aaron alone, the high priest, the Mediator of the Old Covenant, could enter into the Holy of Holies, and that only once a year, on the great Day of Atonement (Leviticus 16:12-14).</p>
+                                
+<p><strong>5. Rebels Against Moses:</strong></p>
+                                <p>After the departure of Israel from Sinai, Aaron joined his sister Miriam in a protest against the authority of Moses (Num. 12), which they asserted to be self-assumed. For this rebellion Miriam was smitten with leprosy, but was made whole again, when, at the pleading of Aaron, Moses interceded with God for her. The sacred office of Aaron, requiring physical, moral and ceremonial cleanness of the strictest order, seems to have made him immune from this form of punishment. Somewhat later (Num. 16) he himself, along with Moses, became the object of a revolt of his own tribe in conspiracy with leaders of Dan. and Reuben. This rebellion was subdued and the authority of Moses and Aaron vindicated by the miraculous overthrow of the rebels. As they were being destroyed by the plague, Aaron, at Moses' command, rushed into their midst with the lighted censer, and the destruction was stayed. The Divine will in choosing Aaron and his family to the priesthood was then fully attested by the miraculous budding of his rod, when, together with rods representing the other tribes, it was placed and left overnight in the sanctuary (Num. 17).</p>
+                                
+                                <p>See AARON'S ROD.</p>
+                                
+                                <p><strong>6. Further History:</strong></p>
+                                <p>After this event Aaron does not come prominently into view until the time of his death, near the close of the Wilderness period. Because of the impatience, or unbelief, of Moses and Aaron at Meribah (Numbers 20:12), the two brothers are prohibited from entering Canaan; and shortly after the last camp at Kadesh was broken, as the people journeyed eastward to the plains of Moab, Aaron died on Mount Hor. In three passages this event is recorded: the more detailed account in Num. 20, a second incidental record in the list of stations of the wanderings in the wilderness (Numbers 33:38-39), and a third casual reference (Deuteronomy 10:6) in an address of Moses. These are not in the least contradictory or inharmonious. The dramatic scene is fully presented in Num. 20: Moses, Aaron and Eleazar go up to Mount Hor in the people's sight; Aaron is divested of his robes of office, which are formally put upon his eldest living son; Aaron dies before the Lord in the Mount at the age of 123, and is given burial by his two mourning relatives, who then return to the camp without the first and great high priest; when the people understand that he is no more, they show both grief and love by thirty days of mourning. The passage in Num. 33 records the event of his death just after the list of stations in the general vicinity of Mount Hor; while Moses in Deu. 10 states from which of these stations, namely, Moserah, that remarkable funeral procession made its way to Mount Hor. In the records we find, not contradiction and perplexity, but simplicity and unity. It is not within the view of this article to present modern displacements and rearrangements of the Aaronic history; it is concerned with the records as they are, and as they contain the faith of the Old Testament writers in the origin in Aaron of their priestly order.</p>
+                                
+                                <p><strong>7. Priestly Succession:</strong></p>
+                                <p>Aaron married Elisheba, daughter of Amminadab, and sister of Nahshon, prince of the tribe of Judah, who bore him four sons: Nadab, Abihu, Eleazar and Ithamar. The sacrilegious act and consequent judicial death of Nadab and Abihu are recorded in Lev. 10. Eleazar and Ithamar were more pious and reverent; and from them descended the long line of priests to whom was committed the ceremonial law of Israel, the succession changing from one branch to the other with certain crises in the nation. At his death Aaron was succeeded by his oldest living son, Eleazar (Numbers 20:28; Deuteronomy 10:6).</p>
+                                
+                                <p>Edward Mack</p>
+                            </div>
+                            <div class="see-also-section">
+                                <div class="see-also-title">See also:</div>
+                                <div class="see-also-links">
+                                    <a href="#def-aaron" class="see-also-link cross-reference" data-ref="aaron" data-source="eastons">Aaron {Easton's Bible Dictionary}</a>
+                                    <a href="#def-aaron" class="see-also-link cross-reference" data-ref="aaron" data-source="hitchcocks">Aaron {Hitchcock's Bible Name}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Letter B Definitions -->
+            <div class="definitions-container hidden" data-letter="B">
+                
+                <!-- Definition: Baal -->
+                <div class="definition-item" id="def-baal">
+                    <div class="definition-header">
+                        <div class="definition-word">Baal</div>
+                        <div class="definition-toggle">
+                            <span>View Definition</span>
+                            <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="definition-content">
+                        <div class="source-tabs">
+                            <button class="source-tab active" data-source="eastons">Easton's</button>
+                            <button class="source-tab" data-source="hitchcocks">Hitchcock's</button>
+                            <button class="source-tab" data-source="isbe">I.S.B.E.</button>
+                        </div>
+                        
+                        <!-- Easton's Content -->
+                        <div class="source-content active" data-source="eastons">
+                            <div class="source-header">
+                                <div class="source-title">Easton's Bible Dictionary</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>lord.</p>
+                                <ul>
+                                    <li>The name appropriated to the principal male god of the Phoenicians. It is found in several places in the plural BAALIM (Judges 2:11; 10:10; I Kings 18:18; Jeremiah 2:23; Hosea 2:17). Baal is identified with Molech (Jeremiah 19:5). It was known to the Israelites as Baal-peor (Numbers 25:3; Deuteronomy 4:3), was worshipped till the time of Samuel (I Samuel 7:4), and was afterwards the religion of the ten tribes in the time of Ahab (I Kings 16:31-33; 18:19,22). It prevailed also for a time in the kingdom of Judah (II Kings 8:27; comp 11:18; 16:3; 2Chr 28:2), till finally put an end to by the severe discipline of the Captivity (Zephaniah 1:4-6). The priests of Baal were in great numbers (I Kings 18:19), and of various classes (II Kings 10:19). Their mode of offering sacrifices is described in I Kings 18:25-29. The sun-god, under the general title of Baal, or "lord," was the chief object of worship of the Canaanites. Each locality had its special Baal, and the various local Baals were summed up under the name of Baalim, or "lords." Each Baal had a wife, who was a colourless reflection of himself.</li>
+                                    <li>A Benjamite, son of Jehiel, the progenitor of the Gibeonites (I Chronicles 8:30; 9:36).</li>
+                                    <li>The name of a place inhabited by the Simeonites, the same probably as Baal-ath-beer (I Chronicles 4:33; Joshua 19:8).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Hitchcock's Content -->
+                        <div class="source-content" data-source="hitchcocks">
+                            <div class="source-header">
+                                <div class="source-title">Hitchcock's Bible Names</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>master; lord</p>
+                            </div>
+                        </div>
+                        
+                        <!-- I.S.B.E. Content - This would be very long, so I'm truncating for brevity -->
+                        <div class="source-content" data-source="isbe">
+                            <div class="source-header">
+                                <div class="source-title">International Standard Bible Encyclopedia</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>ba'-al: (ba'al; or Baal): The Babylonian Belu or Bel, "Lord," was the title of the supreme god among the Canaanites.</p>
+                                
+                                <p><strong>I. Name and Character of Baal:</strong></p>
+                                <p>In Babylonia it was the title specially applied to Merodach of Babylon, which in time came to be used in place of his actual name. As the word in Hebrew also means "possessor," it has been supposed to have originally signified, when used in a religious sense, the god of a particular piece of land or soil. Of this, however, there is no proof, and the sense of "possessor" is derived from that of "lord." The Babylonian Bel-Merodach was a Sun-god, and so too was the Can Baal whose full title was Baal-Shemaim, "lord of heaven." The Phoenician writer Sanchuniathon (Philo Byblius, Fragmenta II) accordingly says that the children of the first generation of mankind "in time of drought stretched forth their hands to heaven toward the sun; for they regarded him as the sole Lord of heaven, and called him Beel-samen, which means 'Lord of Heaven' in the Phoenician language and is equivalent to Zeus in Greek" Baal-Shemaim had a temple at Umm el-Awamid between Acre and Tyre, and his name is found in inscriptions from the Phoenician colonies of Sardinia and Carthage.</p>
+                                
+                                <p><em>[Additional sections would continue here with the full I.S.B.E. entry...]</em></p>
+                                
+                                <p>A. H. Sayce</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Letter C Definitions -->
+            <div class="definitions-container hidden" data-letter="C">
+                
+                <!-- Definition: Cab -->
+                <div class="definition-item" id="def-cab">
+                    <div class="definition-header">
+                        <div class="definition-word">Cab</div>
+                        <div class="definition-toggle">
+                            <span>View Definition</span>
+                            <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="definition-content">
+                        <div class="source-tabs">
+                            <button class="source-tab active" data-source="eastons">Easton's</button>
+                            <button class="source-tab" data-source="isbe">I.S.B.E.</button>
+                        </div>
+                        
+                        <!-- Easton's Content -->
+                        <div class="source-content active" data-source="eastons">
+                            <div class="source-header">
+                                <div class="source-title">Easton's Bible Dictionary</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>hollow (RSV, "kab"), occurs only in II Kings 6:25; a dry measure, the sixth part of a seah, and the eighteenth part of an ephah, equal to about two English quarts.</p>
+                            </div>
+                            <div class="see-also-section">
+                                <div class="see-also-title">See also:</div>
+                                <div class="see-also-links">
+                                    <a href="#def-cab" class="see-also-link cross-reference" data-ref="cab" data-source="isbe">Cab {International Standard Bible Encyclopedia}</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- I.S.B.E. Content -->
+                        <div class="source-content" data-source="isbe">
+                            <div class="source-header">
+                                <div class="source-title">International Standard Bible Encyclopedia</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>See KAB.</p>
+                            </div>
+                            <div class="see-also-section">
+                                <div class="see-also-title">See also:</div>
+                                <div class="see-also-links">
+                                    <a href="#def-cab" class="see-also-link cross-reference" data-ref="cab" data-source="eastons">Cab {Easton's Bible Dictionary}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Definition: Cabbon -->
+                <div class="definition-item" id="def-cabbon">
+                    <div class="definition-header">
+                        <div class="definition-word">Cabbon</div>
+                        <div class="definition-toggle">
+                            <span>View Definition</span>
+                            <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="definition-content">
+                        <div class="source-tabs">
+                            <button class="source-tab active" data-source="hitchcocks">Hitchcock's</button>
+                            <button class="source-tab" data-source="isbe">I.S.B.E.</button>
+                        </div>
+                        
+                        <!-- Hitchcock's Content -->
+                        <div class="source-content active" data-source="hitchcocks">
+                            <div class="source-header">
+                                <div class="source-title">Hitchcock's Bible Names</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>as though understanding</p>
+                            </div>
+                            <div class="see-also-section">
+                                <div class="see-also-title">See also:</div>
+                                <div class="see-also-links">
+                                    <a href="#def-cabbon" class="see-also-link cross-reference" data-ref="cabbon" data-source="isbe">Cabbon {International Standard Bible Encyclopedia}</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- I.S.B.E. Content -->
+                        <div class="source-content" data-source="isbe">
+                            <div class="source-header">
+                                <div class="source-title">International Standard Bible Encyclopedia</div>
+                                <div class="source-actions">
+                                    <button class="action-btn copy-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                        </svg>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="definition-text">
+                                <p>kab'-on (kabbon; Chabra): An unidentified place in the Shephelah of Judah near Eglon (Joshua 15:40). It is possibly the same as MACHBENA, which see.</p>
+                            </div>
+                            <div class="see-also-section">
+                                <div class="see-also-title">See also:</div>
+                                <div class="see-also-links">
+                                    <a href="#def-cabbon" class="see-also-link cross-reference" data-ref="cabbon" data-source="hitchcocks">Cabbon {Hitchcock's Bible Name}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty containers for letters D-Z -->
+            <div class="definitions-container hidden" data-letter="D">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "D" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="E">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "E" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="F">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "F" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="G">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "G" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="H">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "H" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="I">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "I" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="J">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "J" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="K">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "K" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="L">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "L" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="M">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "M" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="N">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "N" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="O">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "O" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="P">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "P" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="Q">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "Q" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="R">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "R" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="S">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "S" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="T">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "T" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="U">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "U" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="V">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "V" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="W">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "W" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="X">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "X" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="Y">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "Y" yet.</div>
+                </div>
+            </div>
+            
+            <div class="definitions-container hidden" data-letter="Z">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📖</div>
+                    <div class="empty-state-text">No definitions available for letter "Z" yet.</div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="def-script.js"></script>
+</body>
+</html>

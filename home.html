@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Site Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+<div class="header-content">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <a href="home.html" class="logo">Bible Tools</a>
+                
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="search-wrapper">
+                        <form class="search-form">
+                            <input type="search" class="search-field" placeholder="Search..." aria-label="Search">
+                            <button type="button" class="search-clear" style="display: none;">&times;</button>
+                            <button type="submit" class="search-button" aria-label="Submit search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="mode-toggle-container">
+                        <span class="mode-label" id="mode-label">Light</span>
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="def.html">Definitions</a>
+                <a href="/topical">Topical Studies</a>
+                <a href="/resources">Resources</a>
+                <a href="/subscriptions">Subscriptions</a>
+                <a href="/about">About</a>
+            </nav>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="content-layout">
+        <!-- Left Sidebar -->
+        <aside class="study-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-heading">Book Notes</h3>
+                <div class="sidebar-dropdown">
+                    <a href="#" class="sidebar-link" data-commentary="barnes-book-notes">Barnes' Book Notes</a>
+                    <a href="#" class="sidebar-link" data-commentary="jamieson-fausset-brown-notes">Jamieson, Fausset, and Brown Book Notes</a>
+                    <a href="#" class="sidebar-link" data-commentary="robertson-notes">Robertson's Book Notes (NT)</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-heading">Commentaries</h3>
+                <div class="sidebar-dropdown">
+                    <a href="#" class="sidebar-link" data-commentary="forerunner">Forerunner Commentary</a>
+                    <a href="#" class="sidebar-link" data-commentary="clarke">Adam Clarke</a>
+                    <a href="#" class="sidebar-link" data-commentary="barnes-notes">Barnes' Notes</a>
+                    <a href="#" class="sidebar-link" data-commentary="jamieson-fausset-brown">Jamieson, Fausset, and Brown</a>
+                    <a href="#" class="sidebar-link" data-commentary="wesley">John Wesley's Notes</a>
+                    <a href="#" class="sidebar-link" data-commentary="matthew-henry">Matthew Henry</a>
+                    <a href="#" class="sidebar-link" data-commentary="peoples">People's Commentary (NT)</a>
+                    <a href="#" class="sidebar-link" data-commentary="robertson-commentary">Robertson's Word Pictures (NT)</a>
+                    <a href="#" class="sidebar-link" data-commentary="scofield">Scofield</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Article Content -->
+        <main class="main-content">
+
+                
+                <!-- Verse Selection Section -->
+                <div class="verse-selection">
+                    <div class="selector-container">
+                        <div class="selector-group">
+                            <label for="book">Book</label>
+                            <select id="book" class="scripture-selector">
+                                <!-- Old Testament -->
+                                <option value="genesis" selected>Genesis</option>
+                                <option value="exodus">Exodus</option>
+                                <option value="leviticus">Leviticus</option>
+                                <option value="numbers">Numbers</option>
+                                <option value="deuteronomy">Deuteronomy</option>
+                                <option value="joshua">Joshua</option>
+                                <option value="judges">Judges</option>
+                                <option value="ruth">Ruth</option>
+                                <option value="1-samuel">1 Samuel</option>
+                                <option value="2-samuel">2 Samuel</option>
+                                <option value="1-kings">1 Kings</option>
+                                <option value="2-kings">2 Kings</option>
+                                <option value="1-chronicles">1 Chronicles</option>
+                                <option value="2-chronicles">2 Chronicles</option>
+                                <option value="ezra">Ezra</option>
+                                <option value="nehemiah">Nehemiah</option>
+                                <option value="esther">Esther</option>
+                                <option value="job">Job</option>
+                                <option value="psalms">Psalms</option>
+                                <option value="proverbs">Proverbs</option>
+                                <option value="ecclesiastes">Ecclesiastes</option>
+                                <option value="song-of-solomon">Song of Solomon</option>
+                                <option value="isaiah">Isaiah</option>
+                                <option value="jeremiah">Jeremiah</option>
+                                <option value="lamentations">Lamentations</option>
+                                <option value="ezekiel">Ezekiel</option>
+                                <option value="daniel">Daniel</option>
+                                <option value="hosea">Hosea</option>
+                                <option value="joel">Joel</option>
+                                <option value="amos">Amos</option>
+                                <option value="obadiah">Obadiah</option>
+                                <option value="jonah">Jonah</option>
+                                <option value="micah">Micah</option>
+                                <option value="nahum">Nahum</option>
+                                <option value="habakkuk">Habakkuk</option>
+                                <option value="zephaniah">Zephaniah</option>
+                                <option value="haggai">Haggai</option>
+                                <option value="zechariah">Zechariah</option>
+                                <option value="malachi">Malachi</option>
+                                <!-- New Testament -->
+                                <option value="matthew">Matthew</option>
+                                <option value="mark">Mark</option>
+                                <option value="luke">Luke</option>
+                                <option value="john">John</option>
+                                <option value="acts">Acts</option>
+                                <option value="romans">Romans</option>
+                                <option value="1-corinthians">1 Corinthians</option>
+                                <option value="2-corinthians">2 Corinthians</option>
+                                <option value="galatians">Galatians</option>
+                                <option value="ephesians">Ephesians</option>
+                                <option value="philippians">Philippians</option>
+                                <option value="colossians">Colossians</option>
+                                <option value="1-thessalonians">1 Thessalonians</option>
+                                <option value="2-thessalonians">2 Thessalonians</option>
+                                <option value="1-timothy">1 Timothy</option>
+                                <option value="2-timothy">2 Timothy</option>
+                                <option value="titus">Titus</option>
+                                <option value="philemon">Philemon</option>
+                                <option value="hebrews">Hebrews</option>
+                                <option value="james">James</option>
+                                <option value="1-peter">1 Peter</option>
+                                <option value="2-peter">2 Peter</option>
+                                <option value="1-john">1 John</option>
+                                <option value="2-john">2 John</option>
+                                <option value="3-john">3 John</option>
+                                <option value="jude">Jude</option>
+                                <option value="revelation">Revelation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="selector-group">
+                            <label for="chapter">Chapter</label>
+                            <select id="chapter" class="scripture-selector">
+                                <option value="1" selected>1</option>
+                            </select>
+                        </div>
+                        
+                        <div class="selector-group">
+                            <label for="verse">Verse</label>
+                            <select id="verse" class="scripture-selector">
+                                <option value="1" selected>1</option>
+                            </select>
+                        </div>
+                        
+                        <button id="goButton" class="go-button">Go</button>
+                    </div>
+                    
+                    <div class="direct-input">
+                        <label for="verseInput">Or enter a reference directly:</label>
+                        <input type="text" id="verseInput" class="verse-input" placeholder="e.g., John 10:27">
+                        <button id="searchButton" class="search-verse-button">Search</button>
+                    </div>
+                    
+                    <div class="translation-selector">
+                        <label for="translation">Translation:</label>
+                        <select id="translation" class="translation-dropdown">
+                            <option value="kjv" selected>King James Version (KJV)</option>
+                            <option value="nkjv">New King James Version (NKJV)</option>
+                            <option value="nasb">New American Standard Bible (NASB)</option>
+                            <option value="niv">New International Version (NIV)</option>
+                            <option value="asv">American Standard Version (ASV)</option>
+                            <option value="ylt">Young's Literal Translation (YLT)</option>
+                            <option value="amp">Amplified Bible (AMP)</option>
+                            <option value="esv">English Standard Version (ESV)</option>
+                            <option value="nlt">New Living Translation (NLT)</option>
+                            <option value="rsv">Revised Standard Version (RSV)</option>
+                            <option value="dby">Darby Translation (DBY)</option>
+                            <option value="web">World English Bible (WEB)</option>
+                            <option value="hnv">Hebrew Names Version (HNV)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Scripture Display Section -->
+                <div class="scripture-display">
+                    <h2 id="passage-title">Genesis 1</h2>
+                    
+                    <div class="controls">
+                        <button id="prevChapter" class="nav-button">← Previous Chapter</button>
+                        <button id="nextChapter" class="nav-button">Next Chapter →</button>
+                    </div>
+                    
+                    <div class="verses-container-wrapper">
+                        <div class="verses-container" id="versesContainer">
+                            <!-- Genesis 1:1-31 verses preloaded -->
+                            <div class="verse highlighted" id="verse-1" data-verse="1">
+                                <div class="verse-content">
+                                    <div class="verse-number">1</div>
+                                    <div class="verse-text">[KJV] In the beginning God created the heaven and the earth.</div>
+                                </div>
+                                    <button class="copy-button" aria-label="Copy verse">
+                                        <span class="copy-icon">
+                                            <svg class="copy-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                            </svg>
+                                            <svg class="check-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="20,6 9,17 4,12"></polyline>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                <div class="verse-tools">
+                                    <div class="verse-options">
+                                        <button class="verse-option" data-option="definitions">Definitions</button>
+                                        <button class="verse-option" data-option="interlinear">Interlinear</button>
+                                        <button class="verse-option" data-option="cross-references">Cross Refs</button>
+                                        <button class="verse-option" data-option="topical">Topical</button>
+                                        <button class="verse-option" data-option="library">Library</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="verse" id="verse-2" data-verse="2">
+                                <div class="verse-content">
+                                    <div class="verse-number">2</div>
+                                    <div class="verse-text">[KJV] And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.</div>
+                                </div>
+                                        <button class="copy-button" aria-label="Copy verse">
+                                            <span class="copy-icon">
+                                                <svg class="copy-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                                </svg>
+                                                <svg class="check-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                <div class="verse-tools">
+                                    <div class="verse-options">
+                                        <button class="verse-option" data-option="definitions">Definitions</button>
+                                        <button class="verse-option" data-option="interlinear">Interlinear</button>
+                                        <button class="verse-option" data-option="cross-references">Cross Refs</button>
+                                        <button class="verse-option" data-option="topical">Topical</button>
+                                        <button class="verse-option" data-option="library">Library</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Continue for all 31 verses of Genesis 1 -->
+                            <div class="verse" id="verse-3" data-verse="3">
+                                <div class="verse-content">
+                                    <div class="verse-number">3</div>
+                                    <div class="verse-text">[KJV] And God said, Let there be light: and there was light.</div>
+                                </div>
+                                        <button class="copy-button" aria-label="Copy verse">
+                                            <span class="copy-icon">
+                                                <svg class="copy-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                                </svg>
+                                                <svg class="check-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                <div class="verse-tools">
+                                    <div class="verse-options">
+                                        <button class="verse-option" data-option="definitions">Definitions</button>
+                                        <button class="verse-option" data-option="interlinear">Interlinear</button>
+                                        <button class="verse-option" data-option="library">Library</button>
+                                        <button class="verse-option" data-option="topical">Topical</button>
+                                        <button class="verse-option" data-option="cross-references">Cross Refs</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="verse" id="verse-4" data-verse="4">
+                                <div class="verse-content">
+                                    <div class="verse-number">4</div>
+                                    <div class="verse-text">[KJV] And God saw the light, that it was good: and God divided the light from the darkness.</div>
+                                </div>
+                                        <button class="copy-button" aria-label="Copy verse">
+                                            <span class="copy-icon">
+                                                <svg class="copy-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                                </svg>
+                                                <svg class="check-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                <div class="verse-tools">
+                                    <div class="verse-options">
+                                        <button class="verse-option" data-option="definitions">Definitions</button>
+                                        <button class="verse-option" data-option="interlinear">Interlinear</button>
+                                        <button class="verse-option" data-option="library">Library</button>
+                                        <button class="verse-option" data-option="topical">Topical</button>
+                                        <button class="verse-option" data-option="cross-references">Cross Refs</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verse Study Panel (initially hidden) -->
+            <div class="verse-study-panel hidden" id="verse-study-panel">
+                <div class="panel-header">
+                    <h3 id="study-panel-title">Study Panel</h3>
+                    <button class="close-button" id="closeStudyPanel" aria-label="Close panel">&times;</button>
+                </div>
+                <div class="verse-context-section">
+                    <div class="verse-context-header">
+                        <div class="verse-navigation">
+                            <button class="verse-nav-button" id="prevVerseStudy" aria-label="Previous verse">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15,18 9,12 15,6"></polyline>
+                                </svg>
+                                Prev
+                            </button>
+                            
+                            <span class="current-verse-ref" id="currentVerseRef">Genesis 1:1</span>
+                            
+                            <button class="verse-nav-button" id="nextVerseStudy" aria-label="Next verse">
+                                Next
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9,18 15,12 9,6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-context-content">
+                        <div class="context-verse" id="contextVerse">
+                            <span class="context-verse-number">1</span>
+                            <span class="context-verse-text">In the beginning God created the heaven and the earth.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-content" id="study-panel-content">
+                    <!-- Study content loaded dynamically -->
+                </div>
+            </div>
+            </article>
+        </main>
+
+        <!-- Right Sidebar - Comparison Column -->
+        <aside class="comparison-column" id="comparison-column">
+            <div class="comparison-header">
+                <h3 id="comparison-title">Compare Translations - Genesis 1:1</h3>
+            </div>
+            
+            <div class="comparison-container" id="comparison-container">
+                <div class="comparison-item">
+                    <div class="translation-name">King James Version (KJV)</div>
+                    <div class="translation-text">In the beginning God created the heaven and the earth.</div>
+                </div>
+                
+                <div class="comparison-item">
+                    <div class="translation-name">New International Version (NIV)</div>
+                    <div class="translation-text">In the beginning God created the heavens and the earth.</div>
+                </div>
+                
+                <div class="comparison-item">
+                    <div class="translation-name">New American Standard Bible (NASB)</div>
+                    <div class="translation-text">In the beginning God created the heavens and the earth.</div>
+                </div>
+                
+                <div class="comparison-item">
+                    <div class="translation-name">New King James Version (NKJV)</div>
+                    <div class="translation-text">In the beginning God created the heavens and the earth.</div>
+                </div>
+                
+                <div class="comparison-item">
+                    <div class="translation-name">American Standard Version (ASV)</div>
+                    <div class="translation-text">In the beginning God created the heavens and the earth.</div>
+                </div>
+                
+                <div class="comparison-item">
+                    <div class="translation-name">Amplified Bible (AMP)</div>
+                    <div class="translation-text">In the beginning God created the heavens and the earth.</div>
+                </div>
+                
+                <div class="comparison-item">
+                    <div class="translation-name">Contemporary English Version (CEV)</div>
+                    <div class="translation-text">In the beginning God created the heavens and the earth.</div>
+                </div>
+                
+                <div class="comparison-item">
+                    <div class="translation-name">Young's Literal Translation (YLT)</div>
+                    <div class="translation-text">In the beginning of God's preparing the heavens and the earth—</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Hidden Template Content for Study Panel -->
+    <div style="display: none;">
+        <!-- Definitions Template -->
+        <div id="definitions-genesis-1-1">
+            <div class="definition-item">
+                <p><span class="definition-word">Beginning</span> <span class="definition-source">{International Standard Bible Encyclopedia}</span></p>
+                <p>The temporal sense is the primary one: "In the beginning," however far back that may be.</p>
+            </div>
+            <div class="definition-item">
+                <p><span class="definition-word">Earth</span> <span class="definition-source">{Easton's Bible Dictionary}</span></p>
+                <p>In the sense of soil or ground, the translation of the word adamah.</p>
+            </div>
+            <div class="definition-item">
+                <p><span class="definition-word">Heaven</span> <span class="definition-source">{Easton's Bible Dictionary}</span></p>
+                <p>The expanse, or firmament, over our heads.</p>
+            </div>
+            <div class="definition-item">
+                <p><span class="definition-word">God</span> <span class="definition-source">{Easton's Bible Dictionary}</span></p>
+                <p>The name of the Divine Being. The word "God" is a relative term and designates the object of worship.</p>
+            </div>
+            <div class="definition-related">
+                <p class="definition-related-title">Other definition entries containing Genesis 1:1:</p>
+                <p>Creation {Easton's} • Heaven {Easton's} • Beginning {I.S.B.E.} • Earth {I.S.B.E.} • Genesis, 1-2 {I.S.B.E.} • Genesis, 3 {I.S.B.E.} • Genesis, 4 {I.S.B.E.} • God, Names Of {I.S.B.E.} • Logos {I.S.B.E.} • Pentateuch, 2b {I.S.B.E.} • Pentateuch, The Samaritan {I.S.B.E.} • Person Of Christ, 4-5 {I.S.B.E.} • Septuagint, 1 {I.S.B.E.} • Wisdom Of Solomon, The {I.S.B.E.} • World, Cosmological {I.S.B.E.}</p>
+            </div>
+        </div>
+
+        <!-- Interlinear Template -->
+        <div id="interlinear-genesis-1-1">
+            <div class="interlinear-content">
+                <p class="interlinear-verse">
+                    <span class="interlinear-english">In the beginning</span>
+                    <span class="interlinear-hebrew">re'shiyth</span>
+                    <span class="interlinear-strongs">(#7225)</span>
+                    
+                    <span class="interlinear-english">God</span>
+                    <span class="interlinear-hebrew">'elohiym</span>
+                    <span class="interlinear-strongs">(#430)</span>
+                    
+                    <span class="interlinear-english">created</span>
+                    <span class="interlinear-hebrew">bara'</span>
+                    <span class="interlinear-strongs">(#1254)</span>
+                    
+                    <span class="interlinear-hebrew">'eth</span>
+                    <span class="interlinear-strongs">(#853)</span>
+                    
+                    <span class="interlinear-english">the heaven</span>
+                    <span class="interlinear-hebrew">shamayim</span>
+                    <span class="interlinear-strongs">(#8064)</span>
+                    
+                    <span class="interlinear-english">and the earth.</span>
+                    <span class="interlinear-hebrew">'erets</span>
+                    <span class="interlinear-strongs">(#776)</span>
+                </p>
+                
+                <div class="word-details">
+                    <h4>Word Details:</h4>
+                    <div class="word-detail-item">
+                        <p><span class="hebrew-word">re'shiyth</span> <span class="strongs-number">#7225</span></p>
+                        <p>From the same as <strong>ro'sh</strong> (#7218); the first, in place, time, order or rank:—beginning, chief(-est), first(-fruits, part, time), principal thing.</p>
+                    </div>
+                    <div class="word-detail-item">
+                        <p><span class="hebrew-word">'elohiym</span> <span class="strongs-number">#430</span></p>
+                        <p>Plural of <strong>'elowahh</strong> (#433); gods in the ordinary sense; but specifically used of the supreme God. Sometimes with the article:—angels, exceeding, God (gods) (-dess, -ly), (very) great, judges, mighty.</p>
+                    </div>
+                    <div class="word-detail-item">
+                        <p><span class="hebrew-word">bara'</span> <span class="strongs-number">#1254</span></p>
+                        <p>A primitive root; to create; (qualified) to cut down (a wood), select, feed (as formative processes):—choose, create (creator), cut down, dispatch, do, make (fat).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Library Template -->
+        <div id="library-genesis-1-1">
+            <div class="library-content">
+                <h4>Articles, Bible studies, and sermons that contain Genesis 1:1:</h4>
+                
+                <div class="library-section">
+                    <h5>Articles</h5>
+                    <ul class="library-list">
+                        <li><a href="#" class="library-link">In the Beginning: The Creation (3)</a></li>
+                        <li><a href="#" class="library-link">In the Beginning: The Creation The Institution of the Sabbath</a></li>
+                        <li><a href="#" class="library-link">The Sabbath in the Time of Christ</a></li>
+                        <li><a href="#" class="library-link">Choosing the New Man (Part Two)</a></li>
+                        <li><a href="#" class="library-link">Do Angels Live Forever?</a></li>
+                        <li><a href="#" class="library-link">Genesis 1: Fact or Fiction? (3)</a></li>
+                        <li><a href="#" class="library-link">How Much Longer Do We Have?</a></li>
+                        <li><a href="#" class="library-link">Leadership and Covenants (Part Eight)</a></li>
+                        <li><a href="#" class="library-link">Leadership and Covenants (Part Five)</a></li>
+                        <li><a href="#" class="library-link">Leadership and Covenants (Part Four)</a></li>
+                    </ul>
+                </div>
+                
+                <div class="library-section">
+                    <h5>Bible Studies</h5>
+                    <ul class="library-list">
+                        <li><a href="#" class="library-link">Basic Doctrines: Satan's Origin and Destiny</a></li>
+                        <li><a href="#" class="library-link">God's Non-Transmittable Attributes (Part Five): Independence</a></li>
+                    </ul>
+                </div>
+                
+                <div class="library-section">
+                    <h5>Booklets</h5>
+                    <ul class="library-list">
+                        <li><a href="#" class="library-link">Did God Create a Devil? (2)</a></li>
+                        <li><a href="#" class="library-link">The Bible—Superstition or Authority?</a></li>
+                    </ul>
+                </div>
+                
+                <div class="library-section">
+                    <h5>Essays</h5>
+                    <ul class="library-list">
+                        <li><a href="#" class="library-link">A God of Many Dimensions</a></li>
+                        <li><a href="#" class="library-link">All About Attitude (2)</a></li>
+                        <li><a href="#" class="library-link">An Illuminating Prophecy (2)</a></li>
+                        <li><a href="#" class="library-link">God's Goodness and Severity</a></li>
+                    </ul>
+                </div>
+                
+                <div class="library-section">
+                    <h5>Sermons</h5>
+                    <ul class="library-list">
+                        <li><a href="#" class="library-link">A Primer On Spirit</a></li>
+                        <li><a href="#" class="library-link">Agape: Does Not Envy</a></li>
+                        <li><a href="#" class="library-link">Angelic Responsibilities (3)</a></li>
+                        <li><a href="#" class="library-link">Angelic Responsibilities</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cross References Template -->
+        <div id="cross-references-genesis-1-1">
+            <div class="cross-references">
+                <h4>Cross-references and similar verses for Genesis 1:1:</h4>
+                
+                <div class="cross-ref-category">
+                    <p class="cross-ref-keyword"><strong>beginning.</strong></p>
+                    <p class="cross-ref-verses">
+                        <a href="#" class="verse-ref">Proverbs 8:22</a> 
+                        <a href="#" class="verse-ref">Proverbs 16:4</a> 
+                        <a href="#" class="verse-ref">Mark 13:19</a> 
+                        <a href="#" class="verse-ref">John 1:1</a> 
+                        <a href="#" class="verse-ref">Hebrews 1:10</a> 
+                        <a href="#" class="verse-ref">1 John 1:1</a>
+                    </p>
+                </div>
+                
+                <div class="cross-ref-category">
+                    <p class="cross-ref-keyword"><strong>God.</strong></p>
+                    <p class="cross-ref-verses">
+                        <a href="#" class="verse-ref">Exodus 20:11</a> 
+                        <a href="#" class="verse-ref">Exodus 31:18</a> 
+                        <a href="#" class="verse-ref">1 Chronicles 16:26</a> 
+                        <a href="#" class="verse-ref">Nehemiah 9:6</a> 
+                        <a href="#" class="verse-ref">Job 26:13</a> 
+                        <a href="#" class="verse-ref">Job 38:4</a> 
+                        <a href="#" class="verse-ref">Psalms 8:3</a> 
+                        <a href="#" class="verse-ref">Psalms 33:6</a> 
+                        <a href="#" class="verse-ref">Psalms 33:9</a> 
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barnes' Book Notes Template -->
+        <div id="barnes-book-notes-genesis-1-1">
+            <div class="commentary-content">
+                <div class="commentary-section">
+                    <p class="commentary-text">The Book of Genesis can be separated into eleven documents or pieces of composition most of which contain additional subordinate divisions. The first of these has no introductory phrase; the third begins with "this is the book of the generations"; and the others with "these are the generations."</p>
+                </div>
+                
+                <div class="commentary-section">
+                    <p class="commentary-verse"><strong>Genesis 1:1</strong> - "In the beginning God created the heaven and the earth."</p>
+                    <p class="commentary-text">This great introductory sentence of the book of God is equal in weight to the whole of its subsequent communications concerning the kingdom of nature.</p>
+                    <p class="commentary-text">Genesis 1:1 assumes the existence of God, for it is He who in the beginning creates. It assumes His eternity, for He is before all things: and since nothing comes from nothing, He Himself must have always been. It implies His omnipotence, for He creates the universe of things. It implies His absolute freedom, for He begins a new course of action. It implies His infinite wisdom, for a ́ kosmos, "an order of matter and mind," can only come from a being of absolute intelligence.</p>
+                </div>
+                
+                <div class="commentary-section">
+                    <p class="commentary-text">This sentence Genesis 1:1 assumes the being of God, and asserts the beginning of things. Hence, it intimates that the existence of God is more immediately patent to the reason of man than the creation of the universe.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barnes' Notes Template -->
+        <div id="barnes-notes-genesis-1-1">
+            <div class="commentary-content">
+                <div class="commentary-section">
+                    <p class="commentary-verse"><strong>Genesis 1:1</strong> - "In the beginning God created the heaven and the earth."</p>
+                    <p class="commentary-text"><em>Section I - The Creation</em></p>
+                    <p class="commentary-text"><strong>The Absolute Creation</strong></p>
+                    <p class="commentary-text"><em>rḕshı̂̂yt</em>, the "head-part, beginning" of a thing, in point of time (Genesis 10:10), or value (Proverbs 1:7). Its opposite is <em>'achărı̂̂yth</em> (Isaiah 46:10). <em>rê'shı̂̂yth</em>, "in the beginning," is always used in reference to time. Here only is it taken absolutely.</p>
+                    <p class="commentary-text"><em>bārā'</em>, "create, give being to something new." It always has God for its subject. Its object may be anything: matter (Genesis 1:1); animal life (Genesis 1:21); spiritual life (Genesis 1:27). Hence, creation is not confined to a single point of time. Whenever anything absolutely new — that is, not involved in anything previously extant — is called into existence, there is creation (Numbers 16:30). Anything or event may also be said to be created by Him who created the whole system of nature to which it belongs (Malachi 2:10). The verb in its simple form occurs forty-eight times (of which eleven are in Genesis, fourteen in the whole Pentateuch, and twenty-one in Isaiah), and always in one sense.</p>
+                    <p class="commentary-text"><em>'ĕlohı̂̂ym</em>, "God." The noun <em>'elôah</em> or <em>'eloah</em> is found in the Hebrew Scriptures fifty-seven times in the singular (two in Deuteronomy, forty-one in Job), and about three thousand times in the plural, of which seventeen are in Job. The Chaldee form <em>'elâh</em> occurs about seventy-four times in the singular and ten in the plural. The Hebrew letter <em>h</em> is proved to be radical, not only by bearing mappiq, but also by keeping its ground before a formative ending. The Arabic verb with the same radicals seems to borrow from it the meaning <em>coluit</em>, "worshipped." The root probably means to be "lasting, binding, firm, strong." Hence, the noun means the Everlasting, and in the plural, the Eternal Powers. It is correctly rendered God, the name of the Eternal and Supreme Being in our language, which perhaps originally meant lord or ruler. And, like this, it is a common or appellative noun. This is evinced by its direct use and indirect applications.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Matthew Henry Template -->
+        <div id="matthew-henry-genesis-1-1">
+            <div class="commentary-content">
+                <div class="commentary-section">
+                    <p class="commentary-text">Genesis is a name taken from the Greek, and signifies "the book of generation or production;" it is properly so called, as containing an account of the origin of all things. There is no other history so old. There is nothing in the most ancient book which exists that contradicts it; while many things recorded by the oldest heathen writers, or to be traced in the customs of different nations, confirm what is related in the book of Genesis.</p>
+                </div>
+                
+                <div class="commentary-section">
+                    <p class="commentary-verse"><strong>Genesis 1:1-2</strong> - "In the beginning God created the heaven and the earth. And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters."</p>
+                    <p class="commentary-text">The first verse of the Bible gives us a satisfying and useful account of the origin of the earth and the heavens. The faith of humble Christians understands this better than the fancy of the most learned men. From what we see of heaven and earth, we learn the power of the great Creator. And let our make and place as men, remind us of our duty as Christians, always to keep heaven in our eye, and the earth under our feet.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forerunner Commentary Template -->
+        <div id="forerunner-genesis-1-1">
+            <div class="commentary-content">
+                <div class="commentary-section">
+                    <p class="commentary-verse"><strong>Genesis 1:1</strong> - "In the beginning God created the heaven and the earth."</p>
+                    <p class="commentary-text">Even before leaving the first verse, a serious student of the Bible is confronted with a difficulty - unless he is willing to believe what the Bible consistently shows from the beginning to the end. The fourth word in the Bible is "God," Elohim in Hebrew. But that takes some explaining. Elohim is God - plural. "In the beginning Gods created the heaven and the earth."</p>
+                </div>
+                
+                <div class="commentary-section">
+                    <p class="commentary-text">For an English-speaking person, this is confirmed in Genesis 1:26, where the translators finally used plural pronouns ("Us" and "Our") to conform to the plural noun antecedent, Elohim.</p>
+                    <p class="commentary-text">The translators recognized in verse 26 that Elohim - "God" - was speaking to somebody, and He was speaking to someone who was just like Him, which is why the word Us is used. They were forced into using a plural pronoun. "Let Us make man in Our image."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topical Template -->
+        <div id="topical-genesis-1-1">
+            <div class="topical-content">
+                <h4>Topical Studies for Genesis 1:1:</h4>
+                
+                <div class="topical-entries">
+                    <p>
+                        <a href="#" class="topical-link"><strong>Earth</strong></a> <span class="source">{Nave's Topical Bible}</span>
+                    </p>
+                    <p>
+                        <a href="#" class="topical-link"><strong>God</strong></a> <span class="source">{Forerunner Commentary}</span> 
+                        <a href="#" class="topical-link"><strong>God</strong></a> <span class="source">{Nave's Topical Bible}</span> 
+                        <a href="#" class="topical-link"><strong>God</strong></a> <span class="source">{Torrey's Topical Textbook}</span>
+                    </p>
+                    <p>
+                        <a href="#" class="topical-link"><strong>Heaven</strong></a> <span class="source">{Forerunner Commentary}</span> 
+                        <a href="#" class="topical-link"><strong>Heaven</strong></a> <span class="source">{Nave's Topical Bible}</span> 
+                        <a href="#" class="topical-link"><strong>Heaven</strong></a> <span class="source">{Torrey's Topical Textbook}</span>
+                    </p>
+                </div>
+                
+                <div class="related-topical">
+                    <h4>Other topical entries containing Genesis 1:1:</h4>
+                    <p>
+                        <a href="#" class="topical-link">Creation</a> <span class="source">{Nave's Topical Bible}</span> 
+                        <a href="#" class="topical-link">Earth</a> <span class="source">{Nave's Topical Bible}</span> 
+                        <a href="#" class="topical-link">Heaven</a> <span class="source">{Nave's Topical Bible}</span> 
+                        <a href="#" class="topical-link">God</a> <span class="source">{Nave's Topical Bible}</span> 
+                        <a href="#" class="topical-link">Time</a> <span class="source">{Nave's Topical Bible}</span>
+                    </p>
+                    <p> 
+                        <a href="#" class="topical-link">Trinity, The</a> <span class="source">{Torrey's Topical Textbook}</span> 
+                        <a href="#" class="topical-link">Heaven</a> <span class="source">{Torrey's Topical Textbook}</span> 
+                        <a href="#" class="topical-link">Creation</a> <span class="source">{Torrey's Topical Textbook}</span> 
+                        <a href="#" class="topical-link">Earth, The</a> <span class="source">{Torrey's Topical Textbook}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bible Data embedded in HTML -->
+    <script type="application/json" id="bible-data">
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

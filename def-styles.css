@@ -1,0 +1,491 @@
+/* Definitions Page Specific Styles */
+
+.definitions-layout {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    padding-top: 12px;
+}
+
+.definitions-content {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--box-shadow);
+}
+
+/* Letter Navigation */
+.letter-navigation {
+    position: relative;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.letter-nav-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.letters-grid {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 4px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.letter-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.letter-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.letter-btn.active {
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.def-search-wrapper {
+    width: 100%;
+}
+
+.def-search-field {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    background-color: #f8f9fa;
+    transition: border-color var(--transition-speed) ease;
+}
+
+.def-search-field:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: white;
+}
+
+/* Current Letter Display */
+.current-letter-display {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.current-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    display: inline-block;
+    padding: 0 var(--spacing-md);
+    border-bottom: 4px solid var(--accent-color);
+}
+
+/* Definitions Container */
+.definitions-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Definition Item */
+.definition-item {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    transition: all var(--transition-speed) ease;
+}
+
+.definition-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.definition-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed) ease;
+}
+
+.definition-header:hover {
+    background-color: #e9ecef;
+}
+
+.definition-item.expanded .definition-header {
+    background-color: var(--highlight-color);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.definition-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.definition-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.toggle-icon {
+    transition: transform var(--transition-speed) ease;
+    width: 20px;
+    height: 20px;
+}
+
+.definition-item.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Definition Content */
+.definition-content {
+    display: none;
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.definition-item.expanded .definition-content {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Source Tabs */
+.source-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.source-tab {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all var(--transition-speed) ease;
+}
+
+.source-tab:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.source-tab.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Source Content */
+.source-content {
+    display: none;
+}
+
+.source-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.source-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.source-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.source-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.action-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.action-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Definition Text */
+.definition-text {
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.definition-text p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.definition-text ul {
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.definition-text li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Cross References */
+.cross-reference {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color var(--transition-speed) ease;
+}
+
+.cross-reference:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.see-also-section {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.see-also-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.see-also-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.see-also-link {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.see-also-link:hover {
+    background-color: var(--highlight-color);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--secondary-color);
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.5;
+}
+
+.empty-state-text {
+    font-size: 1.1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .letters-grid {
+        grid-template-columns: repeat(13, 1fr);
+        gap: 3px;
+    }
+    
+    .letter-btn {
+        padding: 0.4rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 65px;
+    }
+
+    .definitions-layout {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .definitions-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .letter-nav-container {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .letters-grid {
+        grid-template-columns: repeat(13, 1fr);
+        gap: 2px;
+    }
+    
+    .letter-btn {
+        padding: 0.35rem 0.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .current-letter {
+        font-size: 3rem;
+    }
+    
+    .definition-word {
+        font-size: 1.25rem;
+    }
+    
+    .definition-header {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .definition-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .source-tabs {
+        gap: 2px;
+    }
+    
+    .source-tab {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .source-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.4rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .letters-grid {
+        grid-template-columns: repeat(9, 1fr);
+    }
+    
+    .letter-btn {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.2rem;
+    }
+    
+    .current-letter {
+        font-size: 2.5rem;
+    }
+    
+    .definition-word {
+        font-size: 1.1rem;
+    }
+    
+    .definition-toggle {
+        font-size: 0.75rem;
+    }
+    
+    .source-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+    
+    .source-actions {
+        width: 100%;
+        flex-direction: row;
+    }
+}
