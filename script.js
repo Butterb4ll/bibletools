@@ -1102,15 +1102,29 @@ function navigateToVerse(book, chapter, verse) {
         return verse;
     }
     
+    // Helper function to get verse text from HTML (for Genesis 1:1-4)
+    function getVerseTextFromHTML(book, chapter, verse, translation) {
+        // For Genesis 1:1-4, text is stored in HTML with data-translation attributes
+        if (book === 'genesis' && chapter === 1 && verse >= 1 && verse <= 4) {
+            const verseElement = document.querySelector(`[data-verse="${verse}"]`);
+            if (verseElement) {
+                const verseTextElement = verseElement.querySelector(`.verse-text[data-translation="${translation.toLowerCase()}"]`);
+                if (verseTextElement) {
+                    return verseTextElement.textContent;
+                }
+            }
+        }
+        return null; // Return null if not found
+    }
+
     // Get verse text (with fallback) - NOTE: For Genesis 1:1-4, text is in HTML
     function getVerseText(book, chapter, verse, translation) {
         const bookName = bibleData[book] ? bibleData[book].name : book;
 
-        // For Genesis 1:1-4, text is stored in HTML with data-translation attributes
-        // JavaScript will show/hide the appropriate translation
-        if (book === 'genesis' && chapter === 1 && verse >= 1 && verse <= 4) {
-            // Return empty string - text is handled by HTML
-            return '';
+        // For Genesis 1:1-4, try to get text from HTML first
+        const htmlText = getVerseTextFromHTML(book, chapter, verse, translation);
+        if (htmlText !== null) {
+            return htmlText;
         }
 
         // Fallback for all other verses - include translation prefix
@@ -1300,34 +1314,13 @@ function parseAndNavigateToReference(reference) {
     
     function getComparisonText(book, chapter, verse, translation) {
         const bookName = bibleData[book] ? bibleData[book].name : book;
-        
-        // Only Genesis 1:1-4 have real content
-        if (book === 'genesis' && chapter === 1 && verse >= 1 && verse <= 4) {
-            const realVerses = {
-                1: {
-                    'KJV': 'In the beginning God created the heaven and the earth.',
-                    'NIV': 'In the beginning God created the heavens and the earth.',
-                    'NASB': 'In the beginning God created the heavens and the earth.',
-                    'NKJV': 'In the beginning God created the heavens and the earth.',
-                    'ASV': 'In the beginning God created the heavens and the earth.',
-                    'AMP': 'In the beginning God created the heavens and the earth.',
-                    'CEV': 'In the beginning God created the heavens and the earth.',
-                    'YLT': 'In the beginning of God\'s preparing the heavens and the earth—'
-                },
-                2: {
-                    'KJV': 'And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.'
-                },
-                3: {
-                    'KJV': 'And God said, Let there be light: and there was light.'
-                },
-                4: {
-                    'KJV': 'And God saw the light, that it was good: and God divided the light from the darkness.'
-                }
-            };
-            
-            return realVerses[verse][translation] || realVerses[verse]['KJV'] || `Filler text for ${bookName} ${chapter}:${verse}. Will display actual verse later.`;
+
+        // For Genesis 1:1-4, get text from HTML
+        const htmlText = getVerseTextFromHTML(book, chapter, verse, translation);
+        if (htmlText !== null) {
+            return htmlText;
         }
-        
+
         // Fallback for all other verses
         return `Filler text for ${bookName} ${chapter}:${verse}. Will display actual verse later.`;
     }
