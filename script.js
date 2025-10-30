@@ -882,17 +882,25 @@ function navigateToVerse(book, chapter, verse) {
     function loadChapterContent(book, chapter) {
         const versesContainer = document.getElementById('versesContainer');
         if (!versesContainer) return;
-        
-        versesContainer.innerHTML = '';
-        
+
+        // Special handling for Genesis 1:1-4 - preserve HTML if it exists with translations
+        const isGenesis1 = (book === 'genesis' && chapter === 1);
+        const hasPreloadedVerses = isGenesis1 && document.querySelector('[data-verse="1"] .verse-text[data-translation]');
+
+        if (!hasPreloadedVerses) {
+            versesContainer.innerHTML = '';
+        }
+
         const verseCount = bibleData[book].chapters[chapter];
         const translation = translationSelect.value;
-        
-        for (let i = 1; i <= verseCount; i++) {
+
+        const startVerse = (isGenesis1 && hasPreloadedVerses) ? 5 : 1;
+
+        for (let i = startVerse; i <= verseCount; i++) {
             const verseElement = createVerseElement(i, book, chapter, translation);
             versesContainer.appendChild(verseElement);
         }
-        
+
         // Setup verse interactions after creating verses
         setupVerseInteractions();
     }
@@ -902,21 +910,36 @@ function navigateToVerse(book, chapter, verse) {
         verse.className = 'verse';
         verse.id = `verse-${verseNumber}`;
         verse.dataset.verse = verseNumber;
-        
+
         // Create verse content
         const verseContent = document.createElement('div');
         verseContent.className = 'verse-content';
-        
+
         const verseNum = document.createElement('div');
         verseNum.className = 'verse-number';
         verseNum.textContent = verseNumber;
-        
-        const verseText = document.createElement('div');
-        verseText.className = 'verse-text';
-        verseText.textContent = getVerseText(book, chapter, verseNumber, translation);
-        
-        verseContent.appendChild(verseNum);
-        verseContent.appendChild(verseText);
+
+        // For Genesis 1:1-4, create all translation divs from HTML data
+        if (book === 'genesis' && chapter === 1 && verseNumber >= 1 && verseNumber <= 4) {
+            // Translation texts are stored in HTML - this should not be reached during normal page load
+            // But if it is, we need to handle it by returning the HTML-based verse
+            // Since we have Genesis 1:1-4 preloaded in HTML, this shouldn't be called for those verses
+            // But in case it is, we create a single verse-text with fallback
+            const verseText = document.createElement('div');
+            verseText.className = 'verse-text';
+            verseText.dataset.translation = translation;
+            verseText.textContent = `[${translation.toUpperCase()}] Genesis 1:${verseNumber} text should be in HTML`;
+            verseContent.appendChild(verseNum);
+            verseContent.appendChild(verseText);
+        } else {
+            const verseText = document.createElement('div');
+            verseText.className = 'verse-text';
+            verseText.textContent = getVerseText(book, chapter, verseNumber, translation);
+
+            verseContent.appendChild(verseNum);
+            verseContent.appendChild(verseText);
+        }
+
         verse.appendChild(verseContent);
 
         // Create copy button
@@ -1079,94 +1102,15 @@ function navigateToVerse(book, chapter, verse) {
         return verse;
     }
     
-    // Get verse text (with fallback)
+    // Get verse text (with fallback) - NOTE: For Genesis 1:1-4, text is in HTML
     function getVerseText(book, chapter, verse, translation) {
         const bookName = bibleData[book] ? bibleData[book].name : book;
 
-        // Check if we have actual verse content (only Genesis 1:1-4 have real content)
+        // For Genesis 1:1-4, text is stored in HTML with data-translation attributes
+        // JavaScript will show/hide the appropriate translation
         if (book === 'genesis' && chapter === 1 && verse >= 1 && verse <= 4) {
-            const translationData = {
-                'kjv': {
-                    1: "In the beginning God created the heaven and the earth.",
-                    2: "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
-                    3: "And God said, Let there be light: and there was light.",
-                    4: "And God saw the light, that it was good: and God divided the light from the darkness."
-                },
-                'nkjv': {
-                    1: "In the beginning God created the heavens and the earth.",
-                    2: "The earth was without form, and void; and darkness was on the face of the deep. And the Spirit of God was hovering over the face of the waters.",
-                    3: "Then God said, \"Let there be light\"; and there was light.",
-                    4: "And God saw the light, that it was good; and God divided the light from the darkness."
-                },
-                'asv': {
-                    1: "In the beginning God created the heavens and the earth.",
-                    2: "And the earth was waste and void; and darkness was upon the face of the deep: and the Spirit of God moved upon the face of the waters.",
-                    3: "And God said, Let there be light: and there was light.",
-                    4: "And God saw the light, that it was good: and God divided the light from the darkness."
-                },
-                'nasb': {
-                    1: "In the beginning God created the heavens and the earth.",
-                    2: "The earth was formless and void, and darkness was over the surface of the deep, and the Spirit of God was moving over the surface of the waters.",
-                    3: "Then God said, \"Let there be light; and there was light.\"",
-                    4: "God saw that the light was good; and God separated the light from the darkness."
-                },
-                'nasb-ep': {
-                    1: "In the beginning God created the heavens and the earth.",
-                    2: "The earth appeared formless and void, and darkness covered over the surface of the deep, and the Spirit of God moved over the surface of the waters.",
-                    3: "Then God said, \"Let light come\"; and light came.",
-                    4: "God saw that the light appeared good; and God separated the light from the darkness."
-                },
-                'niv': {
-                    1: "In the beginning God created the heavens and the earth.",
-                    2: "Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.",
-                    3: "And God said, \"Let there be light,\" and there was light.",
-                    4: "God saw that the light was good, and He separated the light from the darkness."
-                },
-                'amp': {
-                    1: "IN THE beginning God (prepared, formed, fashioned, and) created the heavens and the earth.",
-                    2: "The earth was without form and an empty waste, and darkness was upon the face of the very great deep. The Spirit of God was moving (hovering, brooding) over the face of the waters.",
-                    3: "And God said, Let there be light; and there was light.",
-                    4: "And God saw that the light was good (suitable, pleasant) {and} He approved it; and God separated the light from the darkness."
-                },
-                'cev': {
-                    1: "In the beginning God created the heavens and the earth.",
-                    2: "The earth was barren, with no form of life; it was under a roaring ocean covered with darkness. But the Spirit of God was moving over the water.",
-                    3: "God said, \"I command light to shine!\" And light started shining.",
-                    4: "God looked at the light and saw that it was good. He separated light from darkness"
-                },
-                'dby': {
-                    1: "In the beginning God created the heavens and the earth.",
-                    2: "And the earth was waste and empty, and darkness was on the face of the deep, and the Spirit of God was hovering over the face of the waters.",
-                    3: "And God said, Let there be light. And there was light.",
-                    4: "And God saw the light that it was good; and God divided between the light and the darkness."
-                },
-                'gnb': {
-                    1: "In the beginning, when God created the universe,",
-                    2: "the earth was formless and desolate. The raging ocean that covered everything was engulfed in total darkness, and the Spirit of God was moving over the water.",
-                    3: "Then God commanded, \"Let there be light\"--and light appeared.",
-                    4: "God was pleased with what he saw. Then he separated the light from the darkness,"
-                },
-                'rsv': {
-                    1: "In the beginning God created the heavens and the earth.",
-                    2: "The earth was without form and void, and darkness was upon the face of the deep; and the Spirit of God was moving over the face of the waters.",
-                    3: "And God said, \"Let there be light\"; and there was light.",
-                    4: "And God saw that the light was good; and God separated the light from the darkness."
-                },
-                'ylt': {
-                    1: "In the beginning of God's preparing the heavens and the earth --",
-                    2: "the earth hath existed waste and void, and darkness 'is' on the face of the deep, and the Spirit of God fluttering on the face of the waters,",
-                    3: "and God saith, `Let light be;' and light is.",
-                    4: "And God seeth the light that `it is' good, and God separateth between the light and the darkness,"
-                }
-            };
-
-            // Return translation text without prefix for Genesis 1:1-4
-            if (translationData[translation] && translationData[translation][verse]) {
-                return translationData[translation][verse];
-            }
-
-            // Fallback to KJV if translation not found
-            return translationData['kjv'][verse];
+            // Return empty string - text is handled by HTML
+            return '';
         }
 
         // Fallback for all other verses - include translation prefix
@@ -1176,12 +1120,30 @@ function navigateToVerse(book, chapter, verse) {
     // Update verse texts when translation changes
     function updateVerseTexts() {
         const translation = translationSelect.value;
-        const verseTexts = document.querySelectorAll('.verse-text');
-        
-        verseTexts.forEach(verseText => {
-            const verse = verseText.closest('.verse');
-            const verseNumber = parseInt(verse.dataset.verse);
-            verseText.textContent = getVerseText(globalVerseState.book, globalVerseState.chapter, verseNumber, translation);
+
+        // Get all verses
+        const verses = document.querySelectorAll('.verse');
+
+        verses.forEach(verseElement => {
+            const verseNumber = parseInt(verseElement.dataset.verse);
+
+            // For Genesis 1:1-4, show/hide translations based on data-translation attribute
+            if (globalVerseState.book === 'genesis' && globalVerseState.chapter === 1 && verseNumber >= 1 && verseNumber <= 4) {
+                const verseTexts = verseElement.querySelectorAll('.verse-text');
+                verseTexts.forEach(verseText => {
+                    if (verseText.dataset.translation === translation) {
+                        verseText.style.display = '';
+                    } else {
+                        verseText.style.display = 'none';
+                    }
+                });
+            } else {
+                // For other verses, update text content as before
+                const verseText = verseElement.querySelector('.verse-text');
+                if (verseText) {
+                    verseText.textContent = getVerseText(globalVerseState.book, globalVerseState.chapter, verseNumber, translation);
+                }
+            }
         });
     }
     
