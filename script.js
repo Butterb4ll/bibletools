@@ -1233,12 +1233,16 @@ function parseAndNavigateToReference(reference) {
         // Translation list
         const translations = [
             { abbr: 'KJV', name: 'King James Version (KJV)' },
-            { abbr: 'NIV', name: 'New International Version (NIV)' },
-            { abbr: 'NASB', name: 'New American Standard Bible (NASB)' },
             { abbr: 'NKJV', name: 'New King James Version (NKJV)' },
             { abbr: 'ASV', name: 'American Standard Version (ASV)' },
+            { abbr: 'NASB', name: 'New American Standard Bible (NASB)' },
+            { abbr: 'NASB-EP', name: 'N.A.S.B. in E-Prime (NASB-EP)' },
+            { abbr: 'NIV', name: 'New International Version (NIV)' },
             { abbr: 'AMP', name: 'Amplified Bible (AMP)' },
             { abbr: 'CEV', name: 'Contemporary English Version (CEV)' },
+            { abbr: 'DBY', name: 'Darby English Version (DBY)' },
+            { abbr: 'GNB', name: 'Good News Bible (GNB)' },
+            { abbr: 'RSV', name: 'Revised Standard Version (RSV)' },
             { abbr: 'YLT', name: "Young's Literal Translation (YLT)" }
         ];
         
