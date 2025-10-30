@@ -1079,20 +1079,95 @@ function navigateToVerse(book, chapter, verse) {
     // Get verse text (with fallback)
     function getVerseText(book, chapter, verse, translation) {
         const bookName = bibleData[book] ? bibleData[book].name : book;
-        
+
         // Check if we have actual verse content (only Genesis 1:1-4 have real content)
         if (book === 'genesis' && chapter === 1 && verse >= 1 && verse <= 4) {
-            const realVerses = {
-                1: "In the beginning God created the heaven and the earth.",
-                2: "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
-                3: "And God said, Let there be light: and there was light.",
-                4: "And God saw the light, that it was good: and God divided the light from the darkness."
+            const translationData = {
+                'kjv': {
+                    1: "In the beginning God created the heaven and the earth.",
+                    2: "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+                    3: "And God said, Let there be light: and there was light.",
+                    4: "And God saw the light, that it was good: and God divided the light from the darkness."
+                },
+                'nkjv': {
+                    1: "In the beginning God created the heavens and the earth.",
+                    2: "The earth was without form, and void; and darkness was on the face of the deep. And the Spirit of God was hovering over the face of the waters.",
+                    3: "Then God said, \"Let there be light\"; and there was light.",
+                    4: "And God saw the light, that it was good; and God divided the light from the darkness."
+                },
+                'asv': {
+                    1: "In the beginning God created the heavens and the earth.",
+                    2: "And the earth was waste and void; and darkness was upon the face of the deep: and the Spirit of God moved upon the face of the waters.",
+                    3: "And God said, Let there be light: and there was light.",
+                    4: "And God saw the light, that it was good: and God divided the light from the darkness."
+                },
+                'nasb': {
+                    1: "In the beginning God created the heavens and the earth.",
+                    2: "The earth was formless and void, and darkness was over the surface of the deep, and the Spirit of God was moving over the surface of the waters.",
+                    3: "Then God said, \"Let there be light; and there was light.\"",
+                    4: "God saw that the light was good; and God separated the light from the darkness."
+                },
+                'nasb-ep': {
+                    1: "In the beginning God created the heavens and the earth.",
+                    2: "The earth appeared formless and void, and darkness covered over the surface of the deep, and the Spirit of God moved over the surface of the waters.",
+                    3: "Then God said, \"Let light come\"; and light came.",
+                    4: "God saw that the light appeared good; and God separated the light from the darkness."
+                },
+                'niv': {
+                    1: "In the beginning God created the heavens and the earth.",
+                    2: "Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.",
+                    3: "And God said, \"Let there be light,\" and there was light.",
+                    4: "God saw that the light was good, and He separated the light from the darkness."
+                },
+                'amp': {
+                    1: "IN THE beginning God (prepared, formed, fashioned, and) created the heavens and the earth.",
+                    2: "The earth was without form and an empty waste, and darkness was upon the face of the very great deep. The Spirit of God was moving (hovering, brooding) over the face of the waters.",
+                    3: "And God said, Let there be light; and there was light.",
+                    4: "And God saw that the light was good (suitable, pleasant) {and} He approved it; and God separated the light from the darkness."
+                },
+                'cev': {
+                    1: "In the beginning God created the heavens and the earth.",
+                    2: "The earth was barren, with no form of life; it was under a roaring ocean covered with darkness. But the Spirit of God was moving over the water.",
+                    3: "God said, \"I command light to shine!\" And light started shining.",
+                    4: "God looked at the light and saw that it was good. He separated light from darkness"
+                },
+                'dby': {
+                    1: "In the beginning God created the heavens and the earth.",
+                    2: "And the earth was waste and empty, and darkness was on the face of the deep, and the Spirit of God was hovering over the face of the waters.",
+                    3: "And God said, Let there be light. And there was light.",
+                    4: "And God saw the light that it was good; and God divided between the light and the darkness."
+                },
+                'gnb': {
+                    1: "In the beginning, when God created the universe,",
+                    2: "the earth was formless and desolate. The raging ocean that covered everything was engulfed in total darkness, and the Spirit of God was moving over the water.",
+                    3: "Then God commanded, \"Let there be light\"--and light appeared.",
+                    4: "God was pleased with what he saw. Then he separated the light from the darkness,"
+                },
+                'rsv': {
+                    1: "In the beginning God created the heavens and the earth.",
+                    2: "The earth was without form and void, and darkness was upon the face of the deep; and the Spirit of God was moving over the face of the waters.",
+                    3: "And God said, \"Let there be light\"; and there was light.",
+                    4: "And God saw that the light was good; and God separated the light from the darkness."
+                },
+                'ylt': {
+                    1: "In the beginning of God's preparing the heavens and the earth --",
+                    2: "the earth hath existed waste and void, and darkness 'is' on the face of the deep, and the Spirit of God fluttering on the face of the waters,",
+                    3: "and God saith, `Let light be;' and light is.",
+                    4: "And God seeth the light that `it is' good, and God separateth between the light and the darkness,"
+                }
             };
-            return `[${translation.toUpperCase()}] ${realVerses[verse]}`;
+
+            // Return translation text without prefix for Genesis 1:1-4
+            if (translationData[translation] && translationData[translation][verse]) {
+                return translationData[translation][verse];
+            }
+
+            // Fallback to KJV if translation not found
+            return translationData['kjv'][verse];
         }
-        
-        // Fallback for all other verses
-        return `Filler text for ${bookName} ${chapter}:${verse}. Will display actual verse later.`;
+
+        // Fallback for all other verses - include translation prefix
+        return `[${translation.toUpperCase()}] Filler text for ${bookName} ${chapter}:${verse}. Will display actual verse later.`;
     }
     
     // Update verse texts when translation changes
