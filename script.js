@@ -53,21 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check for saved dark mode preference - AFTER moving the toggle
     const savedDarkMode = localStorage.getItem('darkMode');
     if (savedDarkMode === 'enabled') {
+        document.documentElement.classList.add('dark-mode');
         document.body.classList.add('dark-mode');
         darkModeToggle.checked = true;
         modeLabel.textContent = 'Dark';
     } else {
         modeLabel.textContent = 'Light';
     }
-    
+
     // Dark mode toggle event listener
     if (darkModeToggle) {
         darkModeToggle.addEventListener('change', function() {
             if (this.checked) {
+                document.documentElement.classList.add('dark-mode');
                 document.body.classList.add('dark-mode');
                 modeLabel.textContent = 'Dark';
                 localStorage.setItem('darkMode', 'enabled');
             } else {
+                document.documentElement.classList.remove('dark-mode');
                 document.body.classList.remove('dark-mode');
                 modeLabel.textContent = 'Light';
                 localStorage.setItem('darkMode', null);
@@ -2045,11 +2048,13 @@ document.addEventListener('click', function(e) {
     // Function to toggle dark mode
     function toggleDarkMode(isEnabled) {
         if (isEnabled) {
+            document.documentElement.classList.add('dark-mode');
             document.body.classList.add('dark-mode');
             if (darkModeToggle) darkModeToggle.checked = true;
             if (modeLabel) modeLabel.textContent = 'Dark';
             localStorage.setItem('darkMode', 'enabled');
         } else {
+            document.documentElement.classList.remove('dark-mode');
             document.body.classList.remove('dark-mode');
             if (darkModeToggle) darkModeToggle.checked = false;
             if (modeLabel) modeLabel.textContent = 'Light';
