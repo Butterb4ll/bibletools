@@ -207,13 +207,17 @@
 .dark-mode .study-content-area,
 .dark-mode .panel-content {
   color: var(--text-color);
+  background-color: var(--card-background);
 }
 
 .dark-mode .commentary-text,
 .dark-mode .definition-item,
 .dark-mode .library-content,
-.dark-mode .topical-content {
+.dark-mode .topical-content,
+.dark-mode .commentary-content,
+.dark-mode .cross-references {
   color: var(--text-color);
+  background-color: transparent;
 }
 
 /* Improved text readability - lighter colors for headings and labels */
@@ -344,8 +348,20 @@
   color: var(--accent-color);
 }
 
+/* Topical and cross-reference links */
+.dark-mode .topical-link,
+.dark-mode .verse-ref {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.dark-mode .topical-link:hover,
+.dark-mode .verse-ref:hover {
+  color: #e8a96d; /* lighter hover tone */
+}
+
 /* ===========================
-   DARK MODE — Verse & Strong’s Links Only
+   DARK MODE — Verse & Strong's Links Only
    =========================== */
 
 /* Strong’s links (e.g., Greek/Hebrew word references) */
