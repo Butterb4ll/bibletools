@@ -2050,21 +2050,52 @@ input:checked + .slider:before {
     justify-content: center;
     gap: var(--spacing-sm);
   }
-  
+
   /* Completely hide sidebars */
   .study-sidebar {
     display: none !important;
   }
-  
+
   .comparison-column {
     display: none !important;
   }
-  
+
   .main-content {
     flex: 1;
     max-width: 800px;
     width: 100%;
     min-width: 0;
+  }
+
+  /* Show hamburger menu at 1050px and below */
+  .nav-toggle {
+    display: block !important;
+  }
+
+  /* Make navigation mobile-style */
+  .main-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding-top: var(--spacing-lg);
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .main-nav.active {
+    left: 0;
+  }
+
+  /* Remove logo scrolled animation on mobile */
+  .site-header.scrolled .logo {
+    font-size: inherit; /* Don't change size on scroll */
   }
   
   /* Hide desktop verse options completely */
@@ -2297,9 +2328,9 @@ input:checked + .slider:before {
   .direct-input {
     margin-top: var(--spacing-sm);
   }
-  
+
   .verse-input {
-    min-width: 180px;
+    min-width: 0; /* Allow smooth scaling across all screen sizes */
   }
 }
 
@@ -2505,15 +2536,15 @@ input:checked + .slider:before {
     gap: var(--spacing-xs);
     align-items: flex-end;
   }
-  
+
   .direct-input label {
     flex: 0 0 100%;
   }
-  
+
+  /* Let verse-input scale smoothly - no sudden size changes */
   .verse-input {
     flex: 1;
-    min-width: 150px;
-    max-width: 250px;
+    min-width: 0; /* Allow it to shrink naturally */
   }
 
   .go-button,
@@ -2714,7 +2745,7 @@ input:checked + .slider:before {
   
   .verse-input {
     flex: 1;
-    min-width: 150px; /* Smaller minimum for mobile */
+    min-width: 0; /* Allow smooth scaling */
     padding: 0.6rem;
     font-size: 16px; /* Prevent zoom on iOS */
     border: 1px solid var(--border-color);
@@ -3117,8 +3148,7 @@ input:checked + .slider:before {
   
   .verse-input {
     flex: 1;
-    min-width: 120px;
-    max-width: 250px;
+    min-width: 0; /* Allow smooth scaling */
     padding: 0.6rem;
     font-size: 0.875rem;
   }
