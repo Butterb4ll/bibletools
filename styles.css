@@ -2070,6 +2070,38 @@ input:checked + .slider:before {
   /* Show hamburger menu at 1050px and below */
   .nav-toggle {
     display: block !important;
+    position: absolute;
+    left: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    z-index: 1005;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
   }
 
   /* Make navigation mobile-style */
@@ -2081,23 +2113,98 @@ input:checked + .slider:before {
     max-width: 320px;
     height: 100vh;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    padding-top: var(--spacing-lg);
+    padding: 4rem var(--spacing-md) var(--spacing-md);
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    z-index: 1003;
     transition: left 0.3s ease;
+    overflow-y: auto;
   }
 
   .main-nav.active {
     left: 0;
   }
 
-  /* Remove logo scrolled animation on mobile */
+  .main-nav a {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    text-align: left;
+  }
+
+  .main-nav::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-top: auto;
+  }
+
+  /* Mode toggle inside menu */
+  .main-nav .mode-toggle-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    padding: 0.5rem 1.5rem;
+    margin: 0;
+  }
+
+  .main-nav .mode-toggle-container .mode-label {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .main-nav .mode-toggle-container .switch {
+    width: 46px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .main-nav .mode-toggle-container .slider {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .main-nav .mode-toggle-container input:checked + .slider {
+    background-color: #0488cd;
+    border-color: #0488cd;
+  }
+
+  /* Menu overlay */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .menu-overlay.active {
+    display: block;
+  }
+
+  /* Remove all header scroll animations on mobile */
+  .site-header.scrolled .header-content {
+    height: 65px; /* Keep original height */
+  }
+
   .site-header.scrolled .logo {
     font-size: inherit; /* Don't change size on scroll */
   }
-  
+
+  /* Logo spacing for hamburger menu */
+  .logo {
+    margin-left: 3.5rem; /* Space for hamburger */
+  }
+
   /* Hide desktop verse options completely */
   .verse-options {
     display: none !important;
