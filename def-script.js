@@ -1,16 +1,13 @@
-// Definitions Page JavaScript - Handles interactions only
-
 document.addEventListener('DOMContentLoaded', function() {
     const letterButtons = document.querySelectorAll('.letter-btn');
     const definitionContainers = document.querySelectorAll('.definitions-container');
     const currentLetterDisplay = document.querySelector('.current-letter');
     const letterNav = document.getElementById('letterNav');
-    
+
     let currentLetter = 'A';
     let lastScrollY = window.pageYOffset;
     let scrollingDown = false;
-    
-    // Letter selection
+
     letterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const letter = this.dataset.letter;
@@ -20,15 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function selectLetter(letter) {
         currentLetter = letter;
-        
-        // Update active button
+
         letterButtons.forEach(btn => btn.classList.remove('active'));
         document.querySelector(`[data-letter="${letter}"]`).classList.add('active');
-        
-        // Update display
+
         currentLetterDisplay.textContent = letter;
-        
-        // Show/hide appropriate containers
+
         definitionContainers.forEach(container => {
             if (container.dataset.letter === letter) {
                 container.classList.remove('hidden');
@@ -36,12 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.classList.add('hidden');
             }
         });
-        
-        // Scroll to top of content
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    
-    // Toggle definition items
+
     document.addEventListener('click', function(e) {
         const header = e.target.closest('.definition-header');
         if (header) {
@@ -49,26 +41,22 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.toggle('expanded');
         }
     });
-    
-    // Source tab switching
+
     document.addEventListener('click', function(e) {
         const tab = e.target.closest('.source-tab');
         if (tab) {
             e.stopPropagation();
             const item = tab.closest('.definition-item');
             const source = tab.dataset.source;
-            
-            // Update tabs
+
             item.querySelectorAll('.source-tab').forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
-            
-            // Update content
+
             item.querySelectorAll('.source-content').forEach(c => c.classList.remove('active'));
             item.querySelector(`.source-content[data-source="${source}"]`).classList.add('active');
         }
     });
-    
-    // Action buttons
+
     document.addEventListener('click', function(e) {
         const copyBtn = e.target.closest('.copy-btn');
         if (copyBtn) {
@@ -117,8 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handlePDF(button) {
         showNotification('PDF download functionality coming soon!');
     }
-    
-    // Cross-reference links
+
     document.addEventListener('click', function(e) {
         const crossRef = e.target.closest('.cross-reference');
         if (crossRef) {

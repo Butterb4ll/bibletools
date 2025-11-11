@@ -268,10 +268,7 @@
   color: #a8adb5;
 }
 
-
-/* ===========================
-   DARK MODE — Interlinear Content
-   =========================== */
+/* Dark mode - Interlinear content */
 .dark-mode .interlinear-content {
   line-height: 1.8;
   color: var(--text-color);
@@ -311,10 +308,7 @@
   color: #d4a679;
 }
 
-
-/* ===========================
-   DARK MODE — Library Styling
-   =========================== */
+/* Dark mode - Library styling */
 .dark-mode .library-content h4,
 .dark-mode .library-content h5 {
   color: #e8eaed; /* lighter heading text for readability */
@@ -344,11 +338,7 @@
   color: var(--accent-color);
 }
 
-/* ===========================
-   DARK MODE — Verse & Strong’s Links Only
-   =========================== */
-
-/* Strong’s links (e.g., Greek/Hebrew word references) */
+/* Dark mode - Verse and Strong's links */
 .dark-mode .strongs-link,
 .dark-mode .word-detail-item a.strongs-link,
 .dark-mode .interlinear-strongs a {
@@ -380,10 +370,7 @@
   text-decoration: underline;
 }
 
-
-/* ===========================
-   DARK MODE — Current Verse Reference
-   =========================== */
+/* Dark mode - Current verse reference */
 .dark-mode .current-verse-ref {
   color: #e8ede8;
   font-weight: 600;
@@ -1863,9 +1850,7 @@ input:checked + .slider:before {
   display: none !important;
 }
 
-/* ==========================================================================
-   COMPLETE RESPONSIVE DESIGN - TABLETS & MOBILE
-   ========================================================================== */
+/* Responsive design - tablets and mobile */
 
 /* Extra large desktop */
 @media (max-width: 1600px) {
@@ -2514,10 +2499,7 @@ input:checked + .slider:before {
   }
 }
 
-
-/* ==========================================================================
-   MOBILE STYLES (768px and below) - DESKTOP-LIKE LAYOUT
-   ========================================================================== */
+/* Mobile styles (768px and below) */
 
 @media (max-width: 768px) {
   /* Reset spacing variables for mobile */
@@ -3025,9 +3007,7 @@ input:checked + .slider:before {
   }
 }
 
-/* ==========================================================================
-   SMALL MOBILE STYLES (480px and below) - Now stack the form elements
-   ========================================================================== */
+/* Small mobile styles (480px and below) */
 
 @media (max-width: 480px) {
   .logo {
@@ -3170,9 +3150,7 @@ input:checked + .slider:before {
 
 }
 
-/* ==========================================================================
-   EXTRA SMALL DEVICES (360px and below)
-   ========================================================================== */
+/* Extra small devices (360px and below) */
 
 @media (max-width: 360px) {
   .logo {
@@ -3202,9 +3180,7 @@ input:checked + .slider:before {
   }
 }
 
-/* ==========================================================================
-   LANDSCAPE ORIENTATION ADJUSTMENTS
-   ========================================================================== */
+/* Landscape orientation adjustments */
 
 @media (max-width: 768px) and (orientation: landscape) {
   body {
@@ -3237,9 +3213,7 @@ input:checked + .slider:before {
   }
 }
 
-/* ==========================================================================
-   TOUCH-FRIENDLY ADJUSTMENTS
-   ========================================================================== */
+/* Touch-friendly adjustments */
 
 @media (hover: none) and (pointer: coarse) {
   .verse:hover {

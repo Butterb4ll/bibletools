@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM Elements
     const header = document.querySelector('.site-header');
     const navToggle = document.querySelector('.nav-toggle');
     const mainNav = document.getElementById('mainNav');
@@ -16,18 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const translationSelect = document.getElementById('translation');
     const prevChapterButton = document.getElementById('prevChapter');
     const nextChapterButton = document.getElementById('nextChapter');
-    
-    // Dark mode toggle
+
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const modeLabel = document.getElementById('mode-label');
     const modeToggleContainer = document.querySelector('.mode-toggle-container');
-    
-    // Function to move dark mode toggle based on screen size
+
+    // Move dark mode toggle between header and menu based on viewport width
     function moveDarkModeToggle() {
         if (window.innerWidth <= 820) {
-            // Move to nav menu if not already there
             if (modeToggleContainer && mainNav && !mainNav.contains(modeToggleContainer)) {
-                // Insert after About link
                 const aboutLink = mainNav.querySelector('a[href="/about"]');
                 if (aboutLink) {
                     aboutLink.insertAdjacentElement('afterend', modeToggleContainer);
@@ -37,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 modeToggleContainer.classList.add('in-mobile-menu');
             }
         } else {
-            // Move back to header if not already there
             const headerContent = document.querySelector('.header-content > div[style*="display: flex"]');
             if (modeToggleContainer && headerContent && !headerContent.contains(modeToggleContainer)) {
                 headerContent.appendChild(modeToggleContainer);
@@ -45,12 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-    
-    // Move toggle on load and resize
+
     moveDarkModeToggle();
     window.addEventListener('resize', moveDarkModeToggle);
-    
-    // Check for saved dark mode preference - AFTER moving the toggle
+
     const savedDarkMode = localStorage.getItem('darkMode');
     if (savedDarkMode === 'enabled') {
         document.body.classList.add('dark-mode');
@@ -59,8 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         modeLabel.textContent = 'Light';
     }
-    
-    // Dark mode toggle event listener
+
     if (darkModeToggle) {
         darkModeToggle.addEventListener('change', function() {
             if (this.checked) {
@@ -74,9 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
 const bibleData = {
-        // Old Testament 
+        // Old Testament
         "genesis": { 
             name: "Genesis",
             chapters: {
@@ -566,7 +558,6 @@ const bibleData = {
         }
     };
 
-    // Book abbreviations for parsing references
 const bookAbbreviations = {
     'gen': 'genesis', 'genesis': 'genesis', 'gn': 'genesis', 'ge': 'genesis', 'gene': 'genesis', 'ges': 'genesis', 'gens': 'genesis',
     'ex': 'exodus', 'exo': 'exodus', 'exod': 'exodus', 'exodus': 'exodus', 'exods': 'exodus',
@@ -669,7 +660,6 @@ const bookAbbreviations = {
     overlay.className = 'menu-overlay';
     document.body.appendChild(overlay);
     
-    // Header scroll behavior
     let lastScrollPosition = 0;
     window.addEventListener('scroll', function() {
         const currentScrollPosition = window.pageYOffset;
@@ -684,7 +674,6 @@ const bookAbbreviations = {
         lastScrollPosition = currentScrollPosition;
     });
     
-    // Mobile menu toggle
     if (navToggle) {
         navToggle.addEventListener('click', function() {
             const isExpanded = navToggle.classList.toggle('active');
@@ -695,7 +684,6 @@ const bookAbbreviations = {
         });
     }
     
-    // Close mobile menu
     overlay.addEventListener('click', closeMobileMenu);
     
     function closeMobileMenu() {
@@ -708,7 +696,6 @@ const bookAbbreviations = {
         }
     }
     
-    // Search functionality
     if (searchField && searchClear) {
         searchField.addEventListener('input', function() {
             const hasValue = searchField.value.length > 0;
@@ -722,21 +709,18 @@ const bookAbbreviations = {
         });
     }
     
-    // Update chapters when book changes
     if (bookSelect) {
         bookSelect.addEventListener('change', function() {
             updateChapters();
         });
     }
     
-    // Update verses when chapter changes
     if (chapterSelect) {
         chapterSelect.addEventListener('change', function() {
             updateVerses();
         });
     }
     
-    // Go button functionality
     if (goButton) {
         goButton.addEventListener('click', function() {
             const book = bookSelect.value;
@@ -747,7 +731,6 @@ const bookAbbreviations = {
         });
     }
     
-    // Direct verse input
     if (searchVerseButton && verseInput) {
         searchVerseButton.addEventListener('click', function() {
             const reference = verseInput.value.trim();
@@ -766,7 +749,6 @@ const bookAbbreviations = {
         });
     }
     
-    // Chapter navigation
     if (prevChapterButton) {
         prevChapterButton.addEventListener('click', function() {
             navigateToPreviousChapter();
@@ -779,7 +761,6 @@ const bookAbbreviations = {
         });
     }
     
-    // Translation change handler
     if (translationSelect) {
         translationSelect.addEventListener('change', function() {
             updateVerseTexts();
@@ -787,7 +768,6 @@ const bookAbbreviations = {
         });
     }
     
-    // Update chapter dropdown
     function updateChapters() {
         const bookValue = bookSelect.value;
         chapterSelect.innerHTML = '';
@@ -806,7 +786,6 @@ const bookAbbreviations = {
         updateVerses();
     }
     
-    // Update verse dropdown
     function updateVerses() {
         const bookValue = bookSelect.value;
         const chapter = parseInt(chapterSelect.value);
@@ -827,20 +806,16 @@ const bookAbbreviations = {
     
 function navigateToVerse(book, chapter, verse) {
     console.log('navigateToVerse called with:', book, chapter, verse); // Debug
-    // Reset verse search input
     const verseInput = document.getElementById('verseInput');
     if (verseInput) {
         verseInput.value = '';
     }
     
-    // Update global state FIRST
     globalVerseState.update(book, chapter, verse);
     
-    // Update UI elements
     const bookName = bibleData[book] ? bibleData[book].name : book;
     document.getElementById('passage-title').textContent = `${bookName} ${chapter}:${verse}`;
     
-    // Update dropdowns to match
     console.log('Setting bookSelect.value to:', book); // Debug
     bookSelect.value = book;
     console.log('bookSelect.value is now:', bookSelect.value); // Debug
@@ -853,17 +828,14 @@ function navigateToVerse(book, chapter, verse) {
     verseSelect.value = verse;
     console.log('verseSelect.value is now:', verseSelect.value); // Debug
     
-    // Load the chapter content
     loadChapterContent(book, chapter);
     
-    // Highlight the correct verse
     setTimeout(() => {
         document.querySelectorAll('.verse').forEach(v => v.classList.remove('highlighted'));
         const targetVerse = document.getElementById(`verse-${verse}`);
         if (targetVerse) {
             targetVerse.classList.add('highlighted');
             
-            // Automatically open Forerunner commentary
             setTimeout(() => {
                 openStudyPanel('forerunner', {
                     book: book,
@@ -875,7 +847,6 @@ function navigateToVerse(book, chapter, verse) {
     }, 100);
 }
     
-    // Load chapter content dynamically
     function loadChapterContent(book, chapter) {
         const versesContainer = document.getElementById('versesContainer');
         if (!versesContainer) return;
@@ -890,7 +861,6 @@ function navigateToVerse(book, chapter, verse) {
             versesContainer.appendChild(verseElement);
         }
         
-        // Setup verse interactions after creating verses
         setupVerseInteractions();
     }
     
@@ -900,7 +870,6 @@ function navigateToVerse(book, chapter, verse) {
         verse.id = `verse-${verseNumber}`;
         verse.dataset.verse = verseNumber;
         
-        // Create verse content
         const verseContent = document.createElement('div');
         verseContent.className = 'verse-content';
         
@@ -916,7 +885,6 @@ function navigateToVerse(book, chapter, verse) {
         verseContent.appendChild(verseText);
         verse.appendChild(verseContent);
 
-        // Create copy button
         const copyButton = document.createElement('button');
         copyButton.className = 'copy-button';
         copyButton.setAttribute('aria-label', 'Copy verse');
@@ -934,11 +902,9 @@ function navigateToVerse(book, chapter, verse) {
 
         verse.appendChild(copyButton);
 
-        // Add verse tools
         const verseTools = document.createElement('div');
         verseTools.className = 'verse-tools';
         
-        // Desktop verse options
         const verseOptions = document.createElement('div');
         verseOptions.className = 'verse-options';
         
@@ -960,11 +926,9 @@ function navigateToVerse(book, chapter, verse) {
         
         verseTools.appendChild(verseOptions);
         
-        // Mobile verse tools
         const mobileTools = document.createElement('div');
         mobileTools.className = 'verse-mobile-tools';
         
-        // Study Tools button and dropdown
         const studyToolsContainer = document.createElement('div');
         studyToolsContainer.className = 'mobile-tool-container';
         
@@ -997,7 +961,6 @@ function navigateToVerse(book, chapter, verse) {
         studyToolsContainer.appendChild(studyToolsButton);
         studyToolsContainer.appendChild(studyToolsDropdown);
         
-        // Commentaries button and dropdown
         const commentariesContainer = document.createElement('div');
         commentariesContainer.className = 'mobile-tool-container mobile-commentary-tools';
         
@@ -1034,7 +997,6 @@ function navigateToVerse(book, chapter, verse) {
         commentariesContainer.appendChild(commentariesButton);
         commentariesContainer.appendChild(commentariesDropdown);
         
-        // Book Notes button and dropdown
         const bookNotesContainer = document.createElement('div');
         bookNotesContainer.className = 'mobile-tool-container mobile-booknotes-tools';
         
@@ -1065,7 +1027,6 @@ function navigateToVerse(book, chapter, verse) {
         bookNotesContainer.appendChild(bookNotesButton);
         bookNotesContainer.appendChild(bookNotesDropdown);
         
-        // Add all containers to mobile tools
         mobileTools.appendChild(studyToolsContainer);
         mobileTools.appendChild(commentariesContainer);
         mobileTools.appendChild(bookNotesContainer);
@@ -1076,7 +1037,6 @@ function navigateToVerse(book, chapter, verse) {
         return verse;
     }
     
-    // Get verse text (with fallback)
     function getVerseText(book, chapter, verse, translation) {
         const bookName = bibleData[book] ? bibleData[book].name : book;
         
@@ -1095,7 +1055,6 @@ function navigateToVerse(book, chapter, verse) {
         return `Filler text for ${bookName} ${chapter}:${verse}. Will display actual verse later.`;
     }
     
-    // Update verse texts when translation changes
     function updateVerseTexts() {
         const translation = translationSelect.value;
         const verseTexts = document.querySelectorAll('.verse-text');
@@ -1107,7 +1066,6 @@ function navigateToVerse(book, chapter, verse) {
         });
     }
     
-    // Navigate to previous chapter
     function navigateToPreviousChapter() {
         let newBook = globalVerseState.book;
         let newChapter = globalVerseState.chapter;
@@ -1115,7 +1073,6 @@ function navigateToVerse(book, chapter, verse) {
         if (newChapter > 1) {
             newChapter--;
         } else {
-            // Move to previous book
             const bookKeys = Object.keys(bibleData);
             const currentIndex = bookKeys.indexOf(newBook);
             
@@ -1128,7 +1085,6 @@ function navigateToVerse(book, chapter, verse) {
         navigateToVerse(newBook, newChapter, 1);
     }
     
-    // Navigate to next chapter
     function navigateToNextChapter() {
         let newBook = globalVerseState.book;
         let newChapter = globalVerseState.chapter;
@@ -1138,7 +1094,6 @@ function navigateToVerse(book, chapter, verse) {
         if (newChapter < numChapters) {
             newChapter++;
         } else {
-            // Move to next book
             const bookKeys = Object.keys(bibleData);
             const currentIndex = bookKeys.indexOf(newBook);
             
@@ -1218,9 +1173,7 @@ function parseAndNavigateToReference(reference) {
     return false;
 }
     
-    // ==========================================
-    // COMPARISON PANEL - Auto-updates with verse
-    // ==========================================
+    // Comparison panel - updates with verse selection
     function updateComparisonPanel() {
         const comparisonTitle = document.getElementById('comparison-title');
         const comparisonContainer = document.getElementById('comparison-container');
@@ -1288,9 +1241,7 @@ function parseAndNavigateToReference(reference) {
         return `Filler text for ${bookName} ${chapter}:${verse}. Will display actual verse later.`;
     }
     
-    // ==========================================
     // STUDY PANEL - Auto-updates with verse
-    // ==========================================
     let currentStudyOption = null;
 
 function updateStudyPanelIfOpen() {
@@ -1334,7 +1285,7 @@ function openStudyPanel(optionType, reference) {
         verse: parseInt(reference.verse)
     };
     
-    // Update global state to match - this will trigger comparison panel update
+
     globalVerseState.update(reference.book, reference.chapter, reference.verse);
     
     // Update the main verse display to match
@@ -1719,9 +1670,7 @@ function openStudyPanel(optionType, reference) {
         }
     });
     
-    // ==========================================
     // VERSE INTERACTIONS
-    // ==========================================
     function setupVerseInteractions() {
         const verses = document.querySelectorAll('.verse');
         
@@ -2010,9 +1959,7 @@ document.addEventListener('click', function(e) {
         });
     }
     
-    // ==========================================
     // INITIALIZATION
-    // ==========================================
     function initialize() {
         // Set initial values
         globalVerseState.update('genesis', 1, 1);
